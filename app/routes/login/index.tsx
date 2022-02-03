@@ -10,6 +10,7 @@ import UserRepo from "~/infra/UserRepo";
 import getDbClient from "~/infra/getDbClient";
 import { AuthenticateUser } from "~/modules/user";
 import { commitSession, getSession, redirectToAppIfLoggedIn } from "~/sessions";
+import Input from "~/components/Input";
 
 export const meta: MetaFunction = () => {
   return { title: "Login" };
@@ -52,6 +53,7 @@ export const action: ActionFunction = async ({ request }) => {
   const userId = await authenticateUser({ email, password });
 
   if (typeof userId !== "string") {
+    console.log("its bad");
     return badRequest({ formError: "Invalid email/password combination" });
   }
 
@@ -67,25 +69,22 @@ export const action: ActionFunction = async ({ request }) => {
 const routeComponent: RouteComponent = () => {
   const actionData = useActionData<ActionData>();
   return (
-    <Form method="post">
-      {actionData?.formError && <div>{actionData?.formError}</div>}
-      <p>
-        <label>
-          Email: <input type="text" name="email" />
-        </label>
-      </p>
-      <p>
-        <label>
-          Password: <input type="password" name="password" />
-        </label>
-      </p>
-      <p>
-        <button type="submit">Login</button>
-      </p>
-      <p>
-        Don't have an account? <a href="/register">Register here</a>
-      </p>
-    </Form>
+    <div className="container">
+      <div className="content">
+        <h1>Login</h1>
+        <Form method="post">
+          {actionData?.formError && (
+            <div className="input-error">{actionData?.formError}</div>
+          )}
+          <Input label="Email" name="email" type="email" />
+          <Input label="Password" name="password" type="password" />
+          <button type="submit">Login</button>
+          <p>
+            Don't have an account? <a href="/register">Register here</a>
+          </p>
+        </Form>
+      </div>
+    </div>
   );
 };
 

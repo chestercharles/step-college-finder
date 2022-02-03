@@ -38,19 +38,15 @@ export const loader: LoaderFunction = async ({ request }) => {
 const routeComponent: RouteComponent = () => {
   const userData = useLoaderData<UserData>();
   return (
-    <div>
-      <nav>
-        <ul>
-          <li>
-            <form action="/logout" method="post">
-              <button type="submit" className="button">
-                Logout
-              </button>
-            </form>
-          </li>
-        </ul>
-      </nav>
-      <div>Welcome to College Finder, {userData.name}!</div>
+    <div className="container">
+      <div className="content">
+        <h4>Welcome to College Finder, {userData.name}!</h4>
+        <form action="/logout" method="post">
+          <button type="submit" className="button">
+            Logout
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

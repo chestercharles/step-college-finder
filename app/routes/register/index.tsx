@@ -5,11 +5,13 @@ import type {
   MetaFunction,
   RouteComponent,
   Session,
+  LinksFunction,
 } from "remix";
 import UserRepo from "~/infra/UserRepo";
 import getDbClient from "~/infra/getDbClient";
 import { RegisterUser } from "~/modules/user";
 import { commitSession, getSession, redirectToAppIfLoggedIn } from "~/sessions";
+import Input from "~/components/Input";
 
 export const meta: MetaFunction = () => {
   return { title: "Register" };
@@ -122,44 +124,40 @@ export const action: ActionFunction = async ({ request }) => {
 const routeComponent: RouteComponent = () => {
   const actionData = useActionData<ActionData>();
   return (
-    <Form method="post">
-      {actionData?.formError && <div>{actionData?.formError}</div>}
-      <p>
-        <label>
-          First Name: <input type="text" name="first_name" />
-        </label>
-        {actionData?.fieldErrors?.firstName && (
-          <div>{actionData?.fieldErrors.firstName}</div>
-        )}
-      </p>
-      <p>
-        <label>
-          Last Name: <input type="text" name="last_name" />
-        </label>
-        {actionData?.fieldErrors?.lastName && (
-          <div>{actionData?.fieldErrors.lastName}</div>
-        )}
-      </p>
-      <p>
-        <label>
-          Email: <input type="text" name="email" />
-        </label>
-        {actionData?.fieldErrors?.email && (
-          <div>{actionData?.fieldErrors.email}</div>
-        )}
-      </p>
-      <p>
-        <label>
-          Password: <input type="password" name="password" />
-        </label>
-        {actionData?.fieldErrors?.password && (
-          <div>{actionData?.fieldErrors.password}</div>
-        )}
-      </p>
-      <p>
-        <button type="submit">Register</button>
-      </p>
-    </Form>
+    <div className="container">
+      <div className="content">
+        <h1>Register</h1>
+        <Form method="post">
+          {actionData?.formError && (
+            <div className="input-error">{actionData?.formError}</div>
+          )}
+          <Input
+            label="First Name"
+            name="first_name"
+            error={actionData?.fieldErrors?.firstName}
+          />
+          <Input
+            label="Last Name"
+            name="last_name"
+            error={actionData?.fieldErrors?.lastName}
+          />
+          <Input
+            label="Email"
+            name="email"
+            error={actionData?.fieldErrors?.email}
+          />
+          <Input
+            label="Password"
+            name="password"
+            error={actionData?.fieldErrors?.password}
+          />
+          <button type="submit">Register</button>
+          <p>
+            Already have an account? <a href="/login">Login here</a>
+          </p>
+        </Form>
+      </div>
+    </div>
   );
 };
 

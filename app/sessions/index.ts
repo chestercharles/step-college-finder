@@ -26,6 +26,7 @@ export async function logout(request: Request) {
 
 export function redirectToLoginIfLoggedOut(session: Session) {
   if (!session.get("userId")) {
+    console.log("going to login");
     return redirect("/login");
   }
 }
