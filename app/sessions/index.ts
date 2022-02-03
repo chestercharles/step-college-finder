@@ -33,6 +33,6 @@ export function redirectToLoginIfLoggedOut(session: Session) {
 
 export function redirectToAppIfLoggedIn(session: Session) {
   if (session.get("userId")) {
-    return redirect("/college-finder");
+    return redirect("/assessments");
   }
 }

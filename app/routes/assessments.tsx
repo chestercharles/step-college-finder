@@ -1,4 +1,10 @@
-import { LoaderFunction, redirect, RouteComponent, useLoaderData } from "remix";
+import {
+  LoaderFunction,
+  Outlet,
+  redirect,
+  RouteComponent,
+  useLoaderData,
+} from "remix";
 import type { Session, MetaFunction } from "remix";
 import { getSession } from "~/sessions";
 import { GetUser } from "~/modules/user";
@@ -40,12 +46,14 @@ const routeComponent: RouteComponent = () => {
   return (
     <div className="container">
       <div className="content">
-        <h4>Welcome to College Finder, {userData.name}!</h4>
-        <form action="/logout" method="post">
-          <button type="submit" className="button">
-            Logout
-          </button>
-        </form>
+        <Outlet />
+        <div className="logout-button">
+          <form action="/logout" method="post">
+            <button type="submit" className="button">
+              Logout
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );

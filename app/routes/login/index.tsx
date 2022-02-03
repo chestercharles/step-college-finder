@@ -59,7 +59,7 @@ export const action: ActionFunction = async ({ request }) => {
 
   session.set("userId", userId);
 
-  return redirect("/college-finder", {
+  return redirect("/assessments", {
     headers: {
       "Set-Cookie": await commitSession(session),
     },
