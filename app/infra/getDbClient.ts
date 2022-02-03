@@ -5,7 +5,6 @@ let client: Knex;
 export default function getDbClient() {
   if (!client) {
     if (process.env.NODE_ENV === "production") {
-      console.log("connection is", process.env.CONNECTION);
       client = knex({
         client: "pg",
         connection: {

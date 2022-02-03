@@ -1,4 +1,3 @@
-console.log("connection is", process.env.CONNECTION);
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
