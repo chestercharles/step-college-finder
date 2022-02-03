@@ -149,6 +149,7 @@ const routeComponent: RouteComponent = () => {
           <Input
             label="Password"
             name="password"
+            type="password"
             error={actionData?.fieldErrors?.password}
           />
           <button type="submit">Register</button>
