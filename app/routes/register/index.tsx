@@ -9,17 +9,11 @@ import type {
 import UserRepo from "~/infra/UserRepo";
 import getDbClient from "~/infra/getDbClient";
 import { RegisterUser } from "~/modules/user";
-import { commitSession, getSession } from "~/sessions";
+import { commitSession, getSession, redirectToAppIfLoggedIn } from "~/sessions";
 
 export const meta: MetaFunction = () => {
   return { title: "Register" };
 };
-
-function redirectIfSessionExists(session: Session) {
-  if (session.has("userId")) {
-    return redirect("/college-finder");
-  }
-}
 
 async function commitNewSession(session: Session) {
   return json(
@@ -30,7 +24,7 @@ async function commitNewSession(session: Session) {
 
 export const loader: LoaderFunction = async ({ request }) => {
   const session = await getSession(request.headers.get("Cookie"));
-  return redirectIfSessionExists(session) || commitNewSession(session);
+  return redirectToAppIfLoggedIn(session) || commitNewSession(session);
 };
 
 function validateName(name: unknown): string | undefined {

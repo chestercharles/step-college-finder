@@ -1,4 +1,5 @@
 import { createCookieSessionStorage, redirect } from "remix";
+import type { Session } from "remix";
 
 const { getSession, commitSession, destroySession } =
   createCookieSessionStorage({
@@ -21,4 +22,16 @@ export async function logout(request: Request) {
       "Set-Cookie": await destroySession(session),
     },
   });
+}
+
+export function redirectToLoginIfLoggedOut(session: Session) {
+  if (!session.get("userId")) {
+    return redirect("/login");
+  }
+}
+
+export function redirectToAppIfLoggedIn(session: Session) {
+  if (session.get("userId")) {
+    return redirect("/college-finder");
+  }
 }
