@@ -4,10 +4,10 @@
   "description": "",
   "license": "",
   "scripts": {
-    "build": "npm i --only=dev && npm run migrate && remix build && npm prune --production",
+    "build": "npm i --only=dev && remix build",
     "dev": "remix dev",
     "postinstall": "remix setup node",
-    "start": "remix-serve build",
+    "start": "npm run migrate && remix-serve build",
     "migrate": "knex migrate:latest"
   },
   "dependencies": {
