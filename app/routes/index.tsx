@@ -1,3 +1,11 @@
+import { useLoaderData } from "remix";
+
+export const loader = () => {
+  return {
+    isAuthenticated: false,
+  };
+};
+
 export default function Index() {
   return (
     <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.4" }}>
