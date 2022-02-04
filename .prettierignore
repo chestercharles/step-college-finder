@@ -1,0 +1,8 @@
+build
+coverage
+.cache
+node_modules
+dev.sqlite
+test.sqlite
+Entity_Diagram.png
+.do
