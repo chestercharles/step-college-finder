@@ -19,12 +19,6 @@ describe("assessment.infra.AssessmentRepo", () => {
     await client.raw("DELETE FROM users");
   });
 
-  after(async () => {
-    const client = getClient();
-    // await client.destroy();
-    // client.destroy;
-  });
-
   async function createUser() {
     const user_id = v4();
     await getClient()("users").insert({
@@ -205,8 +199,6 @@ describe("assessment.infra.AssessmentRepo", () => {
     expect(finalAssessment.responses.length).equals(2);
 
     const [response1, response2] = finalAssessment.responses;
-    // console.log("original response id", responseId);
-    // console.log(finalAssessment.responses);
     expect(response1.responseValues.includes("d")).is.true;
     expect(response1.responseValues.includes("e")).is.true;
     expect(response1.responseValues.includes("f")).is.true;
