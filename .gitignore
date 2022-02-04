@@ -5,4 +5,5 @@ node_modules
 /public/build
 .env
 dev.sqlite3
+test.sqlite3
 .DS_Store

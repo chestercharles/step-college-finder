@@ -4,7 +4,6 @@ import { UserRepo, User } from "~/modules/user";
 export default function UserRepo(client: Knex): UserRepo {
   return {
     add: async (user: User) => {
-      console.log(user);
       await client
         .insert({
           first_name: user.firstName,

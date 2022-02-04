@@ -53,7 +53,6 @@ export const action: ActionFunction = async ({ request }) => {
   const userId = await authenticateUser({ email, password });
 
   if (typeof userId !== "string") {
-    console.log("its bad");
     return badRequest({ formError: "Invalid email/password combination" });
   }
 
