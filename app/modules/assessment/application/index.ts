@@ -32,9 +32,10 @@ type AddAssessmentResponseHandler = (
 export const AddAssessmentResponseHandler: AddAssessmentResponseHandler =
   (assessmentRepo) =>
   async ({ assessmentId, ...payload }) => {
-    const [assessment] = await assessmentRepo.find({ id: assessmentId });
+    let [assessment] = await assessmentRepo.find({ id: assessmentId });
     if (!assessment) throw new Error("Assessment not found");
-    await assessmentRepo.update(addResponseToAssessment(assessment)(payload));
+    assessment = addResponseToAssessment(assessment)(payload);
+    await assessmentRepo.update(assessment);
   };
 
 type GetAssessmentQuery = (
