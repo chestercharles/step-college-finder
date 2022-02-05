@@ -3,10 +3,10 @@ type InputProps = {
   label: string;
   type?: string;
   error?: string;
-  value?: any;
+  value: any;
 };
 
-export default function Input({
+export default function RadioInput({
   name,
   label,
   type = "text",
@@ -14,9 +14,11 @@ export default function Input({
   value,
 }: InputProps) {
   return (
-    <div className="flex">
-      <label htmlFor={name}>{label}</label>
+    <div className="thing">
       <input type={type} name={name} value={value} />
+      <label style={{ width: "300px", margin: "10px" }} htmlFor={name}>
+        {label}
+      </label>
       {error && <div className="input-error">{error}</div>}
     </div>
   );

@@ -1,30 +1,37 @@
 import { Form, redirect, RouteComponent } from "remix";
 import type { ActionFunction } from "remix";
-import { destroySession, getSession } from "~/sessions";
+import { getSessionFromRequest } from "~/sessions";
+import { getQuestions, startAssessment } from "~/modules/assessment/infra/http";
+import RadioInput from "~/components/RadioInput";
 
 export const action: ActionFunction = async ({ request }) => {
-  const session = await getSession(request.headers.get("Cookie"));
+  const session = await getSessionFromRequest(request);
   const userId = session.get("userId");
-
-  if (!userId) {
-    return redirect("/login", {
-      headers: {
-        "Set-Cookie": await destroySession(session),
-      },
-    });
-  }
-
-  return redirect("/assessments/12");
+  const { assessmentId } = await startAssessment(userId);
+  const [firstQuestion] = await getQuestions();
+  return redirect(`/assessments/${assessmentId}/${firstQuestion.id}`);
 };
 
 const routeComponent: RouteComponent = () => {
   return (
-    <div className="flex">
-      <h4>Start a new Assessment</h4>
-      <Form method="post">
-        <button type="submit">Start</button>
-      </Form>
-    </div>
+    <Form method="post">
+      <div className="flex">
+        <h4>What is your focus?</h4>
+        <RadioInput
+          label="Arizona Universities (In-state)"
+          type="radio"
+          name="fav_language"
+          value="instate"
+        />
+        <RadioInput
+          label="National Colleges and Universities (Out-of-State)"
+          type="radio"
+          name="fav_language"
+          value="outofstate"
+        />
+        <button type="submit">Next</button>
+      </div>
+    </Form>
   );
 };
 

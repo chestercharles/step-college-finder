@@ -1,5 +1,5 @@
 import { startAssessment, addResponseToAssessment } from "../domain";
-import type { Assessment } from "../domain";
+import type { Assessment, Question } from "../domain";
 
 export type IAssessmentRepo = {
   add: (assessment: Assessment) => Promise<Assessment>;
@@ -7,10 +7,14 @@ export type IAssessmentRepo = {
   find: (params: { id?: string }) => Promise<Assessment[]>;
 };
 
+export type IQuestionRepo = {
+  find: () => Promise<Question[]>;
+};
+
 type StartAssessmentHandler = (
   assessmentRepo: IAssessmentRepo
 ) => (user_id: string) => Promise<Assessment>;
-const StartAssessmentHandler: StartAssessmentHandler =
+export const StartAssessmentHandler: StartAssessmentHandler =
   (assessmentRepo) => async (user_id) => {
     const assessment = startAssessment(user_id);
     await assessmentRepo.add(assessment);
@@ -21,14 +25,33 @@ type AddAssessmentResponseHandler = (
   assessmentRepo: IAssessmentRepo
 ) => (payload: {
   assessmentId: string;
-  attributeId: string;
+  questionId: string;
   skipped: boolean;
   responseValues: string[];
 }) => Promise<void>;
-const AddAssessmentResponseHandler: AddAssessmentResponseHandler =
+export const AddAssessmentResponseHandler: AddAssessmentResponseHandler =
   (assessmentRepo) =>
   async ({ assessmentId, ...payload }) => {
     const [assessment] = await assessmentRepo.find({ id: assessmentId });
     if (!assessment) throw new Error("Assessment not found");
     await assessmentRepo.update(addResponseToAssessment(assessment)(payload));
+  };
+
+type GetAssessmentQuery = (
+  assessmentRepo: IAssessmentRepo
+) => (assessmentId: string) => Promise<Assessment>;
+export const GetAssessmentQuery: GetAssessmentQuery =
+  (assessmentRepo) => async (assessmentId) => {
+    const [assessment] = await assessmentRepo.find({ id: assessmentId });
+    if (!assessment) throw new Error("Assessment not found");
+    return assessment;
+  };
+
+type GetQuestionsQuery = (
+  questionRepo: IQuestionRepo
+) => () => Promise<Question[]>;
+export const GetQuestionsQuery: GetQuestionsQuery =
+  (questionRepo) => async () => {
+    const questions = await questionRepo.find();
+    return questions;
   };

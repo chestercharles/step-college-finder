@@ -2,7 +2,7 @@ import { v4 } from "uuid";
 import { expect } from "chai";
 import { Assessment } from "../domain";
 import { getClient } from "../../../db.server";
-import { AssessmentRepo } from "./index";
+import { AssessmentRepo } from "./repos";
 
 describe("assessment.infra.AssessmentRepo", () => {
   before(async () => {
@@ -15,7 +15,7 @@ describe("assessment.infra.AssessmentRepo", () => {
     await client.raw("DELETE FROM response_values");
     await client.raw("DELETE FROM responses");
     await client.raw("DELETE FROM assessments");
-    await client.raw("DELETE FROM attributes");
+    await client.raw("DELETE FROM questions");
     await client.raw("DELETE FROM users");
   });
 
@@ -32,14 +32,14 @@ describe("assessment.infra.AssessmentRepo", () => {
   }
 
   async function createAttribute() {
-    const attributeId = v4();
-    await getClient()("attributes").insert({
-      id: attributeId,
-      name: "attribute",
+    const questionId = v4();
+    await getClient()("questions").insert({
+      id: questionId,
+      prompt: "prompt",
       is_boolean: false,
       exclusive: false,
     });
-    return attributeId;
+    return questionId;
   }
 
   async function createAssessment(user_id: string) {
@@ -78,7 +78,7 @@ describe("assessment.infra.AssessmentRepo", () => {
   it("should find a updated an assessment ", async () => {
     const userId = await createUser();
     const assessment = await createAssessment(userId);
-    const attributeId = await createAttribute();
+    const questionId = await createAttribute();
 
     const assessmentRepo = AssessmentRepo();
     await assessmentRepo.add(assessment);
@@ -92,7 +92,7 @@ describe("assessment.infra.AssessmentRepo", () => {
           id: v4(),
           skipped: false,
           responseValues: ["a", "b", "c"],
-          attributeId: attributeId,
+          questionId: questionId,
         },
       ],
     };
@@ -109,7 +109,7 @@ describe("assessment.infra.AssessmentRepo", () => {
   it("should remove deleted responses", async () => {
     const userId = await createUser();
     const assessment = await createAssessment(userId);
-    const attributeId = await createAttribute();
+    const questionId = await createAttribute();
 
     const assessment1: Assessment = {
       ...assessment,
@@ -119,7 +119,7 @@ describe("assessment.infra.AssessmentRepo", () => {
           id: v4(),
           skipped: false,
           responseValues: ["a", "b", "c"],
-          attributeId: attributeId,
+          questionId: questionId,
         },
       ],
     };
@@ -134,7 +134,7 @@ describe("assessment.infra.AssessmentRepo", () => {
           id: v4(),
           skipped: false,
           responseValues: ["d", "e", "f"],
-          attributeId: attributeId,
+          questionId: questionId,
         },
       ],
     };
@@ -154,7 +154,7 @@ describe("assessment.infra.AssessmentRepo", () => {
   it("should update responses", async () => {
     const userId = await createUser();
     const assessment = await createAssessment(userId);
-    const attributeId = await createAttribute();
+    const questionId = await createAttribute();
 
     const responseId = v4();
 
@@ -166,7 +166,7 @@ describe("assessment.infra.AssessmentRepo", () => {
           id: responseId,
           skipped: false,
           responseValues: ["a", "b", "c"],
-          attributeId: attributeId,
+          questionId: questionId,
         },
       ],
     };
@@ -181,13 +181,13 @@ describe("assessment.infra.AssessmentRepo", () => {
           id: responseId,
           skipped: false,
           responseValues: ["d", "e", "f"],
-          attributeId: attributeId,
+          questionId: questionId,
         },
         {
           id: v4(),
           skipped: false,
           responseValues: ["g", "h", "i"],
-          attributeId: attributeId,
+          questionId: questionId,
         },
       ],
     };

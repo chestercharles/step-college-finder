@@ -13,7 +13,7 @@ const { getSession, commitSession, destroySession } =
     },
   });
 
-export { getSession, commitSession, destroySession };
+export { commitSession };
 
 export async function logout(request: Request) {
   const session = await getSession(request.headers.get("Cookie"));
@@ -24,14 +24,22 @@ export async function logout(request: Request) {
   });
 }
 
-export function redirectToLoginIfLoggedOut(session: Session) {
-  if (!session.get("userId")) {
-    return redirect("/login");
-  }
+export function isNotLoggedIn(session: Session) {
+  return !session.get("userId");
 }
 
-export function redirectToAppIfLoggedIn(session: Session) {
-  if (session.get("userId")) {
-    return redirect("/assessments");
-  }
+export async function getSessionFromRequest(request: Request) {
+  return await getSession(request.headers.get("Cookie"));
+}
+
+export async function redirectToLogin(session: Session) {
+  return redirect("/login", {
+    headers: {
+      "Set-Cookie": await destroySession(session),
+    },
+  });
+}
+
+export function redirectToApp() {
+  return redirect("/assessments");
 }

@@ -1,12 +1,5 @@
-import {
-  LoaderFunction,
-  Outlet,
-  redirect,
-  RouteComponent,
-  useLoaderData,
-} from "remix";
-import type { Session, MetaFunction } from "remix";
-import { getSession } from "~/sessions";
+import { LoaderFunction, RouteComponent, useLoaderData } from "remix";
+import { getSessionFromRequest } from "~/sessions";
 import { GetUser } from "~/modules/user";
 import getDbClient from "~/infra/getDbClient";
 import UserRepo from "~/infra/UserRepo";
@@ -23,7 +16,7 @@ function getUser(userId: string) {
 export const loader: LoaderFunction = async ({
   request,
 }): Promise<UserData> => {
-  const session = await getSession(request.headers.get("Cookie"));
+  const session = await getSessionFromRequest(request);
   const userId = session.get("userId");
   const user = await getUser(userId);
   return { name: user.firstName };

@@ -1,16 +1,20 @@
-import { Form, json, redirect, useActionData, useLoaderData } from "remix";
+import { Form, json, redirect, useActionData } from "remix";
 import type {
   ActionFunction,
   LoaderFunction,
   MetaFunction,
   RouteComponent,
   Session,
-  LinksFunction,
 } from "remix";
 import UserRepo from "~/infra/UserRepo";
 import getDbClient from "~/infra/getDbClient";
 import { RegisterUser } from "~/modules/user";
-import { commitSession, getSession, redirectToAppIfLoggedIn } from "~/sessions";
+import {
+  commitSession,
+  getSessionFromRequest,
+  isNotLoggedIn,
+  redirectToApp,
+} from "~/sessions";
 import Input from "~/components/Input";
 
 export const meta: MetaFunction = () => {
@@ -25,8 +29,11 @@ async function commitNewSession(session: Session) {
 }
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const session = await getSession(request.headers.get("Cookie"));
-  return redirectToAppIfLoggedIn(session) || commitNewSession(session);
+  const session = await getSessionFromRequest(request);
+  if (isNotLoggedIn(session)) {
+    return commitNewSession(session);
+  }
+  return redirectToApp();
 };
 
 function validateName(name: unknown): string | undefined {
@@ -80,7 +87,7 @@ type ActionData = {
 const badRequest = (data: ActionData) => json(data, { status: 400 });
 
 export const action: ActionFunction = async ({ request }) => {
-  const session = await getSession(request.headers.get("Cookie"));
+  const session = await getSessionFromRequest(request);
 
   const formData = await request.formData();
   const email = formData.get("email");

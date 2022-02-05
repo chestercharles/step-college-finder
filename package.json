@@ -8,10 +8,11 @@
     "build": "npm i --only=dev && remix build",
     "dev": "remix dev",
     "postinstall": "remix setup node",
-    "start": "npm run migrate && remix-serve build",
+    "start": "npm run migrate && npm run seed && remix-serve build",
     "migrate": "knex migrate:latest",
     "typecheck": "tsc --noEmit",
-    "prettier": "prettier --check ."
+    "prettier": "prettier --check .",
+    "seed": "knex seed:run"
   },
   "dependencies": {
     "@remix-run/dev": "^1.1.3",
