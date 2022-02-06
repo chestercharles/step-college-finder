@@ -19,7 +19,7 @@ describe("assessment.domain.addResponseToAssessment", function () {
     const responsePayload = {
       skipped: false,
       responseValues: ["response-value"],
-      attributeId: "attribute-id",
+      questionId: "question-id",
     };
     const updatedAssessment =
       addResponseToAssessment(assessment)(responsePayload);
@@ -41,7 +41,7 @@ describe("assessment.domain.addResponseToAssessment", function () {
     const responsePayload = {
       skipped: false,
       responseValues: ["response-value"],
-      attributeId: "attribute-id",
+      questionId: "question-id",
     };
 
     expect(() =>

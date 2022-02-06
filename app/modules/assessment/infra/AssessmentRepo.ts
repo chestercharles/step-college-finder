@@ -13,7 +13,7 @@ type AssessmentsDbRow = {
 type ResponseDbRow = {
   id: string;
   assessment_id: string;
-  attribute_id: string;
+  question_id: string;
   skipped: boolean;
   created_date: Date;
 };
@@ -100,7 +100,7 @@ async function insertNewResponsesAndResponseValues(
         return {
           id: response.id,
           assessment_id: assessmentId,
-          attribute_id: response.attributeId,
+          question_id: response.questionId,
           skipped: response.skipped,
         };
       })
@@ -186,7 +186,7 @@ async function buildAssessments(assessmentDbRows: AssessmentsDbRow[]) {
       return {
         id: response.id,
         assessment_id: response.assessment_id,
-        attributeId: response.attribute_id,
+        questionId: response.question_id,
         skipped: response.skipped,
         responseValues: responseValues
           .filter((responseValue) => responseValue.response_id === response.id)

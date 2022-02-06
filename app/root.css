@@ -64,6 +64,11 @@ button {
   justify-content: center;
   align-items: center;
 }
+.thing {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 
 @media print, (min-width: 640px) {
   .content {
@@ -74,4 +79,8 @@ button {
 
 .logout-button {
   margin-top: 100px;
+}
+
+input[type="radio"] {
+  transform: scale(2);
 }
