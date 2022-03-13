@@ -1,11 +1,14 @@
-import { LoaderFunction, RouteComponent, useLoaderData } from "remix";
+import { LoaderFunction, useLoaderData } from "remix";
 import { getSessionFromRequest } from "~/sessions";
 import { GetUser } from "~/modules/user";
 import getDbClient from "~/infra/getDbClient";
 import UserRepo from "~/infra/UserRepo";
+import { Container } from "~/components";
+import { api } from "~/modules/assessment/infra";
 
-type UserData = {
+type LoaderData = {
   name: string;
+  assessments: { id: string; name: string }[];
 };
 
 function getUser(userId: string) {
@@ -15,23 +18,47 @@ function getUser(userId: string) {
 
 export const loader: LoaderFunction = async ({
   request,
-}): Promise<UserData> => {
+}): Promise<LoaderData> => {
   const session = await getSessionFromRequest(request);
   const userId = session.get("userId");
   const user = await getUser(userId);
-  return { name: user.firstName };
+  const assessments = await api.getUserAssessments(userId);
+  return {
+    name: user.firstName,
+    assessments: assessments.map((assessment) => {
+      return {
+        id: assessment.id,
+        name: assessment.startDate.toLocaleString(),
+      };
+    }),
+  };
 };
 
-const routeComponent: RouteComponent = () => {
-  const user = useLoaderData<UserData>();
+function LogoutButton() {
   return (
-    <div>
-      <h4>{user.name}'s Assessments</h4>
-      <div>
-        <a href="/assessments/new">Start New Assessment</a>
-      </div>
-    </div>
+    <form action="/logout" method="post">
+      <button type="submit">Logout</button>
+    </form>
   );
-};
+}
 
-export default routeComponent;
+export default function Assessments() {
+  const user = useLoaderData<LoaderData>();
+  return (
+    <Container>
+      <main>
+        <h4>{user.name}'s Assessments</h4>
+        <a href={`/assessments/new`}>Start New Assessment</a>
+        <h5>Completed Assessments</h5>
+        <ul>
+          {user.assessments.map(({ id, name }) => (
+            <li key={id}>
+              <a href={`/assessments/${id}`}>{name}</a>
+            </li>
+          ))}
+        </ul>
+      </main>
+      <LogoutButton />
+    </Container>
+  );
+}

@@ -6,7 +6,7 @@ type InputProps = {
   value?: any;
 };
 
-export default function Input({
+export function Input({
   name,
   label,
   type = "text",
@@ -14,10 +14,17 @@ export default function Input({
   value,
 }: InputProps) {
   return (
-    <div className="flex">
+    <p>
       <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} value={value} />
-      {error && <div className="input-error">{error}</div>}
-    </div>
+      <br />
+      <input
+        type={type}
+        name={name}
+        value={value}
+        id="exampleInputEmail1"
+        placeholder="Email"
+      />
+      {error && <div>{error}</div>}
+    </p>
   );
 }
