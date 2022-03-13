@@ -15,7 +15,8 @@ import {
   isNotLoggedIn,
   redirectToApp,
 } from "~/sessions";
-import Input from "~/components/Input";
+import { Container, Input } from "~/components";
+import { badRequest } from "~/util";
 
 export const meta: MetaFunction = () => {
   return { title: "Register" };
@@ -84,8 +85,6 @@ type ActionData = {
   };
 };
 
-const badRequest = (data: ActionData) => json(data, { status: 400 });
-
 export const action: ActionFunction = async ({ request }) => {
   const session = await getSessionFromRequest(request);
 
@@ -94,14 +93,6 @@ export const action: ActionFunction = async ({ request }) => {
   const password = formData.get("password");
   const firstName = formData.get("first_name");
   const lastName = formData.get("last_name");
-  if (
-    typeof email !== "string" ||
-    typeof password !== "string" ||
-    typeof firstName !== "string" ||
-    typeof lastName !== "string"
-  ) {
-    return badRequest({ formError: "Form not submitted correctly." });
-  }
 
   const fields = { email, password, firstName, lastName };
   const fieldErrors = {
@@ -113,6 +104,15 @@ export const action: ActionFunction = async ({ request }) => {
 
   if (Object.values(fieldErrors).some(Boolean)) {
     return badRequest({ fieldErrors, fields });
+  }
+
+  if (
+    typeof email !== "string" ||
+    typeof password !== "string" ||
+    typeof firstName !== "string" ||
+    typeof lastName !== "string"
+  ) {
+    return badRequest({ formError: "Form not submitted correctly." });
   }
 
   const userRepo = UserRepo(getDbClient());
@@ -131,41 +131,39 @@ export const action: ActionFunction = async ({ request }) => {
 const routeComponent: RouteComponent = () => {
   const actionData = useActionData<ActionData>();
   return (
-    <div className="container">
-      <div className="content">
-        <h1>Register</h1>
-        <Form method="post">
-          {actionData?.formError && (
-            <div className="input-error">{actionData?.formError}</div>
-          )}
-          <Input
-            label="First Name"
-            name="first_name"
-            error={actionData?.fieldErrors?.firstName}
-          />
-          <Input
-            label="Last Name"
-            name="last_name"
-            error={actionData?.fieldErrors?.lastName}
-          />
-          <Input
-            label="Email"
-            name="email"
-            error={actionData?.fieldErrors?.email}
-          />
-          <Input
-            label="Password"
-            name="password"
-            type="password"
-            error={actionData?.fieldErrors?.password}
-          />
-          <button type="submit">Register</button>
-          <p>
-            Already have an account? <a href="/login">Login here</a>
-          </p>
-        </Form>
-      </div>
-    </div>
+    <Container>
+      <h1>Register</h1>
+      <Form method="post">
+        {actionData?.formError && (
+          <div className="input-error">{actionData?.formError}</div>
+        )}
+        <Input
+          label="First Name"
+          name="first_name"
+          error={actionData?.fieldErrors?.firstName}
+        />
+        <Input
+          label="Last Name"
+          name="last_name"
+          error={actionData?.fieldErrors?.lastName}
+        />
+        <Input
+          label="Email"
+          name="email"
+          error={actionData?.fieldErrors?.email}
+        />
+        <Input
+          label="Password"
+          name="password"
+          type="password"
+          error={actionData?.fieldErrors?.password}
+        />
+        <button type="submit">Register</button>
+        <p>
+          Already have an account? <a href="/login">Login here</a>
+        </p>
+      </Form>
+    </Container>
   );
 };
 

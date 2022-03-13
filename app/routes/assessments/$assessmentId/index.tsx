@@ -1,20 +1,20 @@
 import invariant from "invariant";
-import { LoaderFunction, redirect, RouteComponent } from "remix";
-import { getAssessment, getQuestions } from "~/modules/assessment/infra/http";
+import { LoaderFunction, redirect } from "remix";
+import { api } from "~/modules/assessment/infra";
 
-export const loader: LoaderFunction = async ({
-  request,
-  params,
-}): Promise<any> => {
+export const loader: LoaderFunction = async ({ params }): Promise<any> => {
   invariant(params.assessmentId, "expected params.assessmentId");
-  const assessment = await getAssessment(params.assessmentId);
-  const questions = await getQuestions();
+
+  const assessment = await api.getAssessment(params.assessmentId);
+  if (assessment.completeDate) {
+    return redirect(`/assessments/${params.assessmentId}/view`);
+  }
+
+  const questions = await api.getQuestions();
   const [firstQuestion] = questions;
-  return redirect(`/assessments/${params.assessmentId}/${firstQuestion.id}`);
+  return redirect(
+    `/assessments/${params.assessmentId}/response/${firstQuestion.id}`
+  );
 };
 
-const routeComponent: RouteComponent = () => {
-  return <div>In index</div>;
-};
-
-export default routeComponent;
+export default () => {};

@@ -4,7 +4,7 @@ import type { Assessment, Question } from "../domain";
 export type IAssessmentRepo = {
   add: (assessment: Assessment) => Promise<Assessment>;
   update: (assessment: Assessment) => Promise<Assessment>;
-  find: (params: { id?: string }) => Promise<Assessment[]>;
+  find: (params: { id?: string; userId?: string }) => Promise<Assessment[]>;
 };
 
 export type IQuestionRepo = {
@@ -46,6 +46,15 @@ export const GetAssessmentQuery: GetAssessmentQuery =
     const [assessment] = await assessmentRepo.find({ id: assessmentId });
     if (!assessment) throw new Error("Assessment not found");
     return assessment;
+  };
+
+type GetUserAssessmentQuery = (
+  assessmentRepo: IAssessmentRepo
+) => (userId: string) => Promise<Assessment[]>;
+export const GetUserAssessmentQuery: GetUserAssessmentQuery =
+  (assessmentRepo) => async (userId) => {
+    const assessments = await assessmentRepo.find({ userId });
+    return assessments;
   };
 
 type GetQuestionsQuery = (

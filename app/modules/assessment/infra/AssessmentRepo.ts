@@ -77,8 +77,12 @@ export const AssessmentRepo: () => IAssessmentRepo = () => {
     find: async (params) => {
       const qb = client<AssessmentsDbRow>("assessments");
 
-      if (params.id) {
+      if (typeof params.id === "string" && Boolean(params.id)) {
         qb.where("id", params.id);
+      }
+
+      if (typeof params.userId === "string" && Boolean(params.userId)) {
+        qb.where("user_id", params.userId);
       }
 
       const assessments = await qb;

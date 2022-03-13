@@ -6,15 +6,10 @@ import {
   Scripts,
   ScrollRestoration,
 } from "remix";
-import type { MetaFunction, LinksFunction } from "remix";
-import stylesUrl from "./root.css";
+import type { MetaFunction } from "remix";
 
 export const meta: MetaFunction = () => {
-  return { title: "College Finderd" };
-};
-
-export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: stylesUrl }];
+  return { title: "College Finder" };
 };
 
 export default function App() {

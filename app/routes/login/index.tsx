@@ -15,7 +15,8 @@ import {
   isNotLoggedIn,
   redirectToApp,
 } from "~/sessions";
-import Input from "~/components/Input";
+import { Input, Container } from "~/components";
+import { badRequest } from "~/util";
 
 export const meta: MetaFunction = () => {
   return { title: "Login" };
@@ -44,8 +45,6 @@ type ActionData = {
   };
 };
 
-const badRequest = (data: ActionData) => json(data, { status: 400 });
-
 export const action: ActionFunction = async ({ request }) => {
   const session = await getSessionFromRequest(request);
 
@@ -73,26 +72,24 @@ export const action: ActionFunction = async ({ request }) => {
   });
 };
 
-const routeComponent: RouteComponent = () => {
+export default function Login() {
   const actionData = useActionData<ActionData>();
   return (
-    <div className="container">
-      <div className="content">
-        <h1>Login</h1>
-        <Form method="post">
-          {actionData?.formError && (
-            <div className="input-error">{actionData?.formError}</div>
-          )}
-          <Input label="Email" name="email" type="email" />
-          <Input label="Password" name="password" type="password" />
-          <button type="submit">Login</button>
-          <p>
-            Don't have an account? <a href="/register">Register here</a>
-          </p>
-        </Form>
-      </div>
-    </div>
+    <Container>
+      <h1>Login</h1>
+      <Form method="post">
+        <Input label="Email" name="email" type="email" />
+        <Input
+          label="Password"
+          name="password"
+          type="password"
+          error={actionData?.formError}
+        />
+        <button type="submit">Login</button>
+        <p>
+          Don't have an account? <a href="/register">Register here</a>
+        </p>
+      </Form>
+    </Container>
   );
-};
-
-export default routeComponent;
+}

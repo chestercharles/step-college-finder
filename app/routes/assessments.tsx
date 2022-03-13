@@ -7,7 +7,7 @@ import {
 } from "~/sessions";
 
 export const meta: MetaFunction = () => {
-  return { title: "Assessments" };
+  return { title: "My Assessments" };
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -19,20 +19,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 const routeComponent: RouteComponent = () => {
-  return (
-    <div className="container">
-      <div className="content">
-        <Outlet />
-        <div className="logout-button">
-          <form action="/logout" method="post">
-            <button type="submit" className="button">
-              Logout
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
+  return <Outlet />;
 };
 
 export default routeComponent;

@@ -1,38 +1,57 @@
-import { Form, redirect, RouteComponent } from "remix";
+import { Form, redirect, useActionData } from "remix";
 import type { ActionFunction } from "remix";
 import { getSessionFromRequest } from "~/sessions";
-import { getQuestions, startAssessment } from "~/modules/assessment/infra/http";
-import RadioInput from "~/components/RadioInput";
+import { api } from "~/modules/assessment/infra";
+import { Container, MultiInput } from "~/components";
+import { badRequest } from "~/util";
+
+type ActionData = {
+  formError?: string;
+};
 
 export const action: ActionFunction = async ({ request }) => {
-  const session = await getSessionFromRequest(request);
-  const userId = session.get("userId");
-  const { assessmentId } = await startAssessment(userId);
-  const [firstQuestion] = await getQuestions();
-  return redirect(`/assessments/${assessmentId}/${firstQuestion.id}`);
+  const formData = await request.formData();
+  const focus = formData.get("response");
+
+  if (typeof focus !== "string") {
+    return badRequest<ActionData>({
+      formError: "Must select a focus.",
+    });
+  }
+
+  if (focus === "outOfState") {
+    const session = await getSessionFromRequest(request);
+    const userId = session.get("userId");
+    const { assessmentId } = await api.startAssessment(userId);
+    const [firstQuestion] = await api.getQuestions();
+    return redirect(
+      `/assessments/${assessmentId}/response/${firstQuestion.id}`
+    );
+  }
+
+  return redirect("/assessments/complete");
 };
 
-const routeComponent: RouteComponent = () => {
+export default function New() {
+  const actionData = useActionData<ActionData>();
   return (
-    <Form method="post">
-      <div className="flex">
-        <h4>What is your focus?</h4>
-        <RadioInput
-          label="Arizona Universities (In-state)"
+    <Container>
+      <Form method="post">
+        <MultiInput
+          label="What is your focus?"
           type="radio"
-          name="fav_language"
-          value="instate"
-        />
-        <RadioInput
-          label="National Colleges and Universities (Out-of-State)"
-          type="radio"
-          name="fav_language"
-          value="outofstate"
+          name="response"
+          error={actionData?.formError}
+          options={[
+            { label: "Arizona Universities (In-state)", value: "instate" },
+            {
+              label: "Arizona Universities (Out-of-state)",
+              value: "outOfState",
+            },
+          ]}
         />
         <button type="submit">Next</button>
-      </div>
-    </Form>
+      </Form>
+    </Container>
   );
-};
-
-export default routeComponent;
+}
