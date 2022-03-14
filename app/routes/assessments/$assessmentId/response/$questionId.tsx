@@ -69,7 +69,10 @@ type ActionData = {
   };
 };
 
-export const action: ActionFunction = async ({ request, params }) => {
+export const action: ActionFunction = async ({
+  request,
+  params,
+}): Promise<Response> => {
   const formData = await request.formData();
   const responses = formData.getAll("response") as string[];
 
