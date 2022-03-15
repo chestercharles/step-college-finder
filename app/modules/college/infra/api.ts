@@ -18,7 +18,3 @@ export namespace api {
       return attributeValues;
     };
 }
-
-// export const http = {
-//   getAttributeValuesForQuestion,
-// };
