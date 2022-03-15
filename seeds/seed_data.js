@@ -79,7 +79,8 @@ exports.seed = async function (knex) {
       order: 2,
       skip_value: "",
       is_boolean: true,
-      exclusive: false,
+      exclusive: true,
+      exclude_value: "No",
     },
     {
       id: q3Id,
@@ -103,7 +104,9 @@ exports.seed = async function (knex) {
       order: 5,
       skip_value: "",
       is_boolean: true,
-      exclusive: false,
+      exclusive: true,
+      exclude_value: "No",
+      match_value: "Military",
     },
     {
       id: q6Id,
@@ -113,6 +116,8 @@ exports.seed = async function (knex) {
       skip_value: "",
       is_boolean: true,
       exclusive: true,
+      exclude_value: "No",
+      match_value: "Womens",
     },
     {
       id: q7Id,
@@ -121,6 +126,8 @@ exports.seed = async function (knex) {
       skip_value: "",
       is_boolean: true,
       exclusive: true,
+      exclude_value: "No",
+      match_value: "Native/Black",
     },
   ]);
   const rows = await readCSV("../colleges.csv");

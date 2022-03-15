@@ -4,7 +4,7 @@ import { api as scoringApi } from "~/modules/scoring/infra";
 import { api as collegeApi } from "~/modules/college/infra";
 
 type LoaderData = {
-  results: { name: string; score: number }[];
+  results: { name: string; score: number; matches: string[] }[];
 };
 
 function buildViewModal(params: {
@@ -16,9 +16,16 @@ function buildViewModal(params: {
       const scoredCollege = params.scoredAssessment.scoredColleges.find(
         (scoredCollege) => scoredCollege.collegeId === college.id
       );
+      invariant(scoredCollege, "expected college to be scored");
       return {
         name: college.name,
-        score: scoredCollege?.score ?? 0,
+        score: scoredCollege.score,
+        matches: scoredCollege.scoreDetails
+          .filter(
+            (scoreDetail) =>
+              scoreDetail.matched && scoreDetail.collegeId === college.id
+          )
+          .map((scoreDetail) => scoreDetail.match_value),
       };
     })
     .sort((a, b) => b.score - a.score);
@@ -60,6 +67,7 @@ export default function Results() {
                 <tr>
                   <td>{result.name}</td>
                   <td>{result.score}</td>
+                  <td>{result.matches.sort().join(", ")}</td>
                 </tr>
               );
             })}
