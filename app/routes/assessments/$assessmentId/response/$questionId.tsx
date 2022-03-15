@@ -10,7 +10,7 @@ import {
 } from "remix";
 import { Container, MultiInput } from "~/components";
 import { api as assessmentApi } from "~/modules/assessment/infra/";
-import { api as collegeApi } from "~/modules/college/infra";
+import { api, api as collegeApi } from "~/modules/college/infra";
 import { badRequest } from "~/util";
 import { Params } from "react-router";
 
@@ -69,7 +69,10 @@ type ActionData = {
   };
 };
 
-export const action: ActionFunction = async ({ request, params }) => {
+export const action: ActionFunction = async ({
+  request,
+  params,
+}): Promise<Response> => {
   const formData = await request.formData();
   const responses = formData.getAll("response") as string[];
 
@@ -101,6 +104,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     return redirect(`/assessments/${assessmentId}/response/${nextQuestion.id}`);
   }
 
+  await assessmentApi.completeAssessment(assessmentId);
   return redirect(`/assessments/${assessmentId}/complete`);
 };
 

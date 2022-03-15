@@ -1,4 +1,8 @@
-import { startAssessment, addResponseToAssessment } from "../domain";
+import {
+  startAssessment,
+  addResponseToAssessment,
+  completeAssessment,
+} from "../domain";
 import type { Assessment, Question } from "../domain";
 
 export type IAssessmentRepo = {
@@ -18,6 +22,20 @@ export const StartAssessmentHandler: StartAssessmentHandler =
   (assessmentRepo) => async (user_id) => {
     const assessment = startAssessment(user_id);
     await assessmentRepo.add(assessment);
+    return assessment;
+  };
+
+type CompleteAssessmentHandler = (
+  assessmentRepo: IAssessmentRepo
+) => (assessmentId: string) => Promise<Assessment>;
+export const CompleteAssessmentHandler: CompleteAssessmentHandler =
+  (assessmentRepo) => async (assessmentId) => {
+    const [assessment] = await assessmentRepo.find({ id: assessmentId });
+    if (!assessment) {
+      throw new Error("Assessment not found");
+    }
+    const completedAssessment = completeAssessment(assessment);
+    await assessmentRepo.update(completedAssessment);
     return assessment;
   };
 

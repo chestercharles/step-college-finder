@@ -6,6 +6,7 @@ import type {
   Question,
 } from "./types";
 import { startAssessment } from "./startAssessment";
+import { completeAssessment } from "./completeAssessment";
 import { addResponseToAssessment } from ".//addResponseToAssessment";
 export {
   Assessment,
@@ -13,6 +14,7 @@ export {
   CompletedAssessment,
   AssessmentResponse,
   startAssessment,
+  completeAssessment,
   addResponseToAssessment,
   Question,
 };

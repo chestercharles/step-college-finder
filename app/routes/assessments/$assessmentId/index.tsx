@@ -7,7 +7,7 @@ export const loader: LoaderFunction = async ({ params }): Promise<any> => {
 
   const assessment = await api.getAssessment(params.assessmentId);
   if (assessment.completeDate) {
-    return redirect(`/assessments/${params.assessmentId}/view`);
+    return redirect(`/assessments/${params.assessmentId}/results`);
   }
 
   const questions = await api.getQuestions();
