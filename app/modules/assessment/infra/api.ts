@@ -6,7 +6,7 @@ import {
   AddAssessmentResponseHandler,
   CompleteAssessmentHandler,
 } from "~/modules/assessment/application";
-import { Assessment, Question } from "~/modules/assessment/domain";
+import { Assessment } from "~/modules/assessment/domain";
 import { AssessmentRepo, QuestionRepo } from "~/modules/assessment/infra/repos";
 
 export namespace api {
@@ -30,7 +30,22 @@ export namespace api {
     return { assessmentId: assessment.id };
   };
 
-  type getAssessment = (assessmentId: string) => Promise<Assessment>;
+  export type AssessmentDTO = {
+    id: string;
+    userId: string;
+    startDate: Date;
+    completeDate: Date | null;
+    responses: AssessmentResponseDTO[];
+  };
+
+  export type AssessmentResponseDTO = {
+    id: string;
+    skipped: boolean;
+    responseValues: string[];
+    questionId: string;
+  };
+
+  type getAssessment = (assessmentId: string) => Promise<AssessmentDTO>;
   export const getAssessment: getAssessment = async (userId) => {
     const assessmentRepo = AssessmentRepo();
     const assessment = await GetAssessmentQuery(assessmentRepo)(userId);

@@ -5,7 +5,7 @@ import {
 } from "../domain";
 
 export type ICollegeRepo = {
-  find: () => Promise<College[]>;
+  find: (params?: { id?: string }) => Promise<College[]>;
 };
 
 type GetAttributeValuesForQuestion = (
@@ -19,3 +19,15 @@ export const GetAttributeValuesForQuestion: GetAttributeValuesForQuestion =
       colleges,
     });
   };
+
+type GetCollege = (
+  collegeRepo: ICollegeRepo
+) => (collegeId: string) => Promise<College>;
+export const GetCollege: GetCollege = (collegeRepo) => async (collegeId) => {
+  const [college] = await collegeRepo.find({ id: collegeId });
+  if (!college) {
+    throw new Error("College not found");
+  }
+
+  return college;
+};

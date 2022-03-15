@@ -4,6 +4,7 @@ export type AttributeValue = {
 };
 
 export type College = {
+  id: string;
   name: string;
   attribute_values: AttributeValue[];
 };
