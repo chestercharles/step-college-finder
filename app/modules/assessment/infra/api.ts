@@ -4,6 +4,7 @@ import {
   GetQuestionsQuery,
   GetUserAssessmentQuery,
   AddAssessmentResponseHandler,
+  CompleteAssessmentHandler,
 } from "~/modules/assessment/application";
 import { Assessment, Question } from "~/modules/assessment/domain";
 import { AssessmentRepo, QuestionRepo } from "~/modules/assessment/infra/repos";
@@ -13,6 +14,19 @@ export namespace api {
   export const startAssessment: startAssessment = async (userId) => {
     const assessmentRepo = AssessmentRepo();
     const assessment = await StartAssessmentHandler(assessmentRepo)(userId);
+    return { assessmentId: assessment.id };
+  };
+
+  type completeAssessment = (
+    assessmentId: string
+  ) => Promise<{ assessmentId: string }>;
+  export const completeAssessment: completeAssessment = async (
+    assessmentId
+  ) => {
+    const assessmentRepo = AssessmentRepo();
+    const assessment = await CompleteAssessmentHandler(assessmentRepo)(
+      assessmentId
+    );
     return { assessmentId: assessment.id };
   };
 
