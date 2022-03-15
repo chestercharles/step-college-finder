@@ -35,4 +35,6 @@ export type Question = {
   skip_value: string;
   exclusive: boolean;
   is_boolean: boolean;
+  match_value: string;
+  exclude_value: string;
 };

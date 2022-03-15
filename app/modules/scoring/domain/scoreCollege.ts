@@ -1,31 +1,111 @@
-import { CollegeToScore, AssessmentToScore, ScoredCollege } from "./types";
+import {
+  CollegeToScore,
+  AssessmentToScore,
+  ScoredCollege,
+  QuestionToScore,
+  ScoreDetail,
+} from "./types";
 
 type scoreCollege = (params: {
   college: CollegeToScore;
   assessment: AssessmentToScore;
+  questions: QuestionToScore[];
 }) => ScoredCollege;
-export const scoreCollege: scoreCollege = ({ college, assessment }) => {
-  const scoreResponseAgainstCollege = ScoreResponseAgainstCollege(college);
-  const score = assessment.responses
-    .map(scoreResponseAgainstCollege)
-    .reduce((totalScore, responseScore) => totalScore + responseScore, 0);
+export const scoreCollege: scoreCollege = ({
+  college,
+  assessment,
+  questions,
+}) => {
+  const scoreResponseAgainstCollege = ScoreResponseAgainstCollege({
+    college,
+    questions,
+  });
+  const scoreDetails = assessment.responses.flatMap(
+    scoreResponseAgainstCollege
+  );
+
+  const totalScore = calculateTotalScore({ scoreDetails, questions, college });
   return {
     collegeId: college.id,
-    score,
+    scoreDetails,
+    score: totalScore,
   };
 };
 
-type ScoreResponseAgainstCollege = (
-  college: CollegeToScore
-) => (response: AssessmentToScore["responses"][0]) => number;
+type ScoreResponseAgainstCollege = (params: {
+  college: CollegeToScore;
+  questions: QuestionToScore[];
+}) => (response: AssessmentToScore["responses"][0]) => ScoreDetail[];
 const ScoreResponseAgainstCollege: ScoreResponseAgainstCollege =
-  (college) => (response) => {
+  ({ college, questions }) =>
+  (response) => {
+    const shouldExclude = ShouldExlude(questions);
     const questionId = response.questionId;
-    const collegeAttributeValues = college.attribute_values.filter(
-      (attribute_value) => attribute_value.question_id === questionId
-    );
-    const matchedResponses = response.responseValues.filter((responseValue) =>
-      collegeAttributeValues.map((v) => v.value).includes(responseValue)
-    );
-    return matchedResponses.length;
+    const collegeAttributeValues = college.attribute_values
+      .filter((attribute_value) => attribute_value.question_id === questionId)
+      .map((v) => v.value);
+    return response.responseValues
+      .filter((responseValue) => collegeAttributeValues.includes(responseValue))
+      .filter((responseValue) => !shouldExclude({ questionId, responseValue }))
+      .map((responseValue) => {
+        return {
+          questionId,
+          collegeId: college.id,
+          yourAnswer: responseValue,
+          match_value:
+            questions.find((q) => q.id === questionId)?.match_value ??
+            responseValue,
+          matched: true,
+        };
+      })
+      .filter((detail) => !["Yes", "No"].includes(detail.match_value));
   };
+
+type calculateTotalScore = (params: {
+  college: CollegeToScore;
+  scoreDetails: ScoreDetail[];
+  questions: QuestionToScore[];
+}) => number;
+const calculateTotalScore: calculateTotalScore = (params) => {
+  const exclusiveQuestions = params.questions.filter((q) => q.exclusive);
+
+  for (const exclusiveQuestion of exclusiveQuestions) {
+    const scoreDetail = params.scoreDetails.find(
+      (scoreDetails) => scoreDetails.questionId === exclusiveQuestion.id
+    );
+    if (!scoreDetail) {
+      const collegeValue = params.college.attribute_values.find(
+        (v) => v.question_id === exclusiveQuestion.id
+      );
+
+      if (
+        exclusiveQuestion.match_value &&
+        collegeValue?.value !== exclusiveQuestion.exclude_value
+      ) {
+        console.log("---");
+        console.log("no score detail", exclusiveQuestion);
+        console.log("no score detail", collegeValue);
+        return 0;
+      }
+    }
+  }
+
+  return params.scoreDetails.reduce((totalScore, scoreDetail) => {
+    return totalScore + (scoreDetail.matched ? 1 : 0);
+  }, 0);
+};
+
+type ShouldExlude = (
+  questions: QuestionToScore[]
+) => (params: { questionId: string; responseValue: string }) => boolean;
+const ShouldExlude: ShouldExlude = (questions) => (params) => {
+  const exclusiveQuestion = questions.find(
+    (q) => q.exclusive && q.id === params.questionId
+  );
+
+  if (exclusiveQuestion) {
+    return exclusiveQuestion.exclude_value === params.responseValue;
+  }
+
+  return false;
+};
