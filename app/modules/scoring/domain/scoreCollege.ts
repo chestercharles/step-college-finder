@@ -53,7 +53,7 @@ const ScoreResponseAgainstCollege: ScoreResponseAgainstCollege =
           collegeId: college.id,
           yourAnswer: responseValue,
           match_value:
-            questions.find((q) => q.id === questionId)?.match_value ??
+            questions.find((q) => q.id === questionId)?.match_value ||
             responseValue,
           matched: true,
         };
