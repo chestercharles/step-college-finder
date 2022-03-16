@@ -1,83 +1,82 @@
 School,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9
-Arizona State University,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, music, art, architecture",No,No,No,instate
-University of Arizona,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, music, art, architecture",No,No,No,instate
-Northern Arizona University,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, music, art",No,No,No,instate
-Whitman College,Rural,"Yes, No",Small,"computerscience, music, art",No,No,Yes,national
-U.S. Air Force Academy,Urban,Yes,Small,"engineering, computerscience",Yes,No,No,national
+Arizona State University,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, music, art, architecture",No,No,No,instate
+University of Arizona,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, music, art, architecture",No,No,No,instate
+Northern Arizona University,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, music, art",No,No,No,instate
+Whitman College,Rural,"Yes, No",Small,"Computer Science, music, art",No,No,Yes,national
+U.S. Air Force Academy,Urban,Yes,Small,"engineering, Computer Science",Yes,No,No,national
 U.S. Military Academy,Rural,Yes,Small,engineering,Yes,No,No,national
-U.S. Naval Academy,Urban,Yes,Small,"engineering, computerscience",Yes,No,No,national
+U.S. Naval Academy,Urban,Yes,Small,"engineering, Computer Science",Yes,No,No,national
 Babson College,Urban,"Yes, No",Small,business,No,No,No,national
-Amherst College,Rural,"Yes, No",Small,"computerscience, music, art",No,No,No,national
+Amherst College,Rural,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
 Barnard College,Urban,"Yes, No",Small,"music, art, architecture",No,Yes,No,national
 Bates College,Urban,"Yes, No",Small,"music, art",No,No,No,national
-Bowdoin College,Urban,"Yes, No",Small,"computerscience, music, art",No,No,No,national
-Bryn Mawr College,Urban,"Yes, No",Small,"computerscience, music, art",No,Yes,No,national
-Carleton College,Rural,"Yes, No",Small,"computerscience, music, art",No,No,No,national
-Claremont McKenna College,Urban,"Yes, No",Small,"business, computerscience, music, art",No,No,No,national
-Claremont McKenna College,Urban,"Yes, No",Small,"business, computerscience, music, art",No,No,No,national
-Colby College,Rural,"Yes, No",Small,"computerscience, music, art",No,No,No,national
-Colgate University,Rural,"Yes, No",Small,"computerscience, music, art",No,No,No,national
+Bowdoin College,Urban,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
+Bryn Mawr College,Urban,"Yes, No",Small,"Computer Science, music, art",No,Yes,No,national
+Carleton College,Rural,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
+Claremont McKenna College,Urban,"Yes, No",Small,"business, Computer Science, music, art",No,No,No,national
+Colby College,Rural,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
+Colgate University,Rural,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
 Colorado College,Urban,"Yes, No",Small,"music, art",No,No,No,national
 Connecticut College,Urban,"Yes, No",Small,"music, art, architecture",No,No,No,national
 Davidson College,Urban,"Yes, No",Small,"music, art",No,No,No,national
 Denison University,Rural,"Yes, No",Small,"business, journalism, music, art",No,No,No,national
-Dickinson College,Rural,"Yes, No",Small,"business, computerscience, music, art",No,No,No,national
-Franklin & Marshall College,Urban,"Yes, No",Small,"business, computerscience, music, art",No,No,No,national
-Grinnell College,Rural,"Yes, No",Small,"computerscience, music, art",No,No,No,national
+Dickinson College,Rural,"Yes, No",Small,"business, Computer Science, music, art",No,No,No,national
+Franklin & Marshall College,Urban,"Yes, No",Small,"business, Computer Science, music, art",No,No,No,national
+Grinnell College,Rural,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
 Hamilton College,Rural,"Yes, No",Small,"music, art",No,No,No,national
 Harvey Mudd College,Urban,"Yes, No",Small,engineering,No,No,No,national
 Haverford College,Urban,"Yes, No",Small,"music, art",No,No,No,national
 Kenyon College,Rural,"Yes, No",Small,"music, art",No,No,No,national
 Lafayette College,Urban,"Yes, No",Small,"engineering, music, art",No,No,No,national
 Macalester College,Urban,"Yes, No",Small,"music, art",No,No,No,national
-Middlebury College,Rural,"Yes, No",Small,"computerscience, music, art, architecture",No,No,No,national
-Mt. Holyoke College,Rural,"Yes, No",Small,"computerscience, music, art",No,Yes,No,national
+Middlebury College,Rural,"Yes, No",Small,"Computer Science, music, art, architecture",No,No,No,national
+Mt. Holyoke College,Rural,"Yes, No",Small,"Computer Science, music, art",No,Yes,No,national
 Oberlin College,Urban,"Yes, No",Small,"business, journalism, music, art",No,No,No,national
-Occidental College,Urban,"Yes, No",Small,"computerscience, music, art",No,No,No,national
+Occidental College,Urban,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
 Pitzer College,Urban,"Yes, No",Small,"business, art",No,No,No,national
-Pomona College,Urban,"Yes, No",Small,"computerscience, music, art",No,No,No,national
-Reed College,Urban,"Yes, No",Small,"computerscience, music, art",No,No,No,national
-Scripps College,Urban,"Yes, No",Small,"business, computerscience, music, art",No,Yes,No,national
+Pomona College,Urban,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
+Reed College,Urban,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
+Scripps College,Urban,"Yes, No",Small,"business, Computer Science, music, art",No,Yes,No,national
 Skidmore College,Urban,"Yes, No",Small,"business, music, art",No,No,No,national
-Smith College,Rural,"Yes, No",Small,"engineering, computerscience, music, art",No,Yes,No,national
+Smith College,Rural,"Yes, No",Small,"engineering, Computer Science, music, art",No,Yes,No,national
 Swarthmore College,Urban,"Yes, No",Small,"engineering, music, art",No,No,No,national
-Trinity College,Urban,"Yes, No",Small,"engineering, computerscience, music, art",No,No,No,national
+Trinity College,Urban,"Yes, No",Small,"engineering, Computer Science, music, art",No,No,No,national
 Union College,Urban,"Yes, No",Small,"engineering, business, music, art",No,No,No,national
 University of Richmond,Urban,"Yes, No",Small,"journalism, music, art",No,No,No,national
 Vassar College,Urban,"Yes, No",Small,"music, art",No,No,No,national
-Washington & Lee University,Rural,"Yes, No",Small,"business, computerscience, journalism, music, art",No,No,No,national
+Washington & Lee University,Rural,"Yes, No",Small,"business, Computer Science, journalism, music, art",No,No,No,national
 Wellesley College,Urban,"Yes, No",Small,"music, art, architecture",No,Yes,No,national
-Wesleyan University,Rural,"Yes, No",Small,"computerscience, music, art",No,No,No,national
-Williams College,Rural,"Yes, No",Small,"computerscience, music, art",No,No,No,national
-Boston College,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, music, art",No,No,No,national
-Boston University,Urban,"Yes, No",Large,"engineering, business, computerscience, journalism, music, art",No,No,No,national
-Brown University,Urban,"Yes, No",Large,"engineering, business, computerscience, music, art, architecture",No,No,No,national
-California Institute of Technology,Urban,"Yes, No",Large,"engineering, computerscience",No,No,No,national
-Case Western Reserve University,Urban,"Yes, No",Large,"engineering, nursing, computerscience, music, art",No,No,No,national
-Columbia University,Urban,"Yes, No",Large,"engineering, business, computerscience, music, art, architecture",No,No,No,national
-Cornell University,Rural,"Yes, No",Large,"engineering, business, computerscience, music, art, architecture",No,No,No,national
-Dartmouth College,Rural,"Yes, No",Large,"engineering, computerscience, music, art",No,No,No,national
-Duke University,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, music, art",No,No,No,national
-Emory University,Urban,"Yes, No",Large,"business, nursing, computerscience, music, art",No,No,No,national
-Georgetown University,Urban,"Yes",Large,"business, computerscience, music, art",No,No,No,national
-Harvard University,Urban,"Yes, No",Large,"engineering, business, computerscience, music, art",No,No,No,national
-Johns Hopkins University,Urban,"Yes, No",Large,"engineering, computerscience, music, art",No,No,No,national
-Lehigh University,Urban,"Yes, No",Large,"engineering, business, computerscience, journalism, music, art, architecture",No,No,No,national
-MIT,Urban,"Yes, No",Large,"engineering, business, computerscience, music, art, architecture",No,No,No,national
-Northeastern University,Urban,"Yes, No",Large,"engineering, business, computerscience, journalism, music, art, architecture",No,No,No,national
-Northwestern University,Urban,"Yes, No",Large,"engineering, business, computerscience, journalism, music, art",No,No,No,national
-Princeton University,Urban,"Yes, No",Large,"engineering, computerscience, music, art, architecture",No,No,No,national
-Rice University,Urban,"Yes, No",Large,"engineering, computerscience, music, art, architecture",No,No,No,national
-Stanford University,Urban,"Yes, No",Large,"engineering, computerscience, music, art",No,No,No,national
-Tufts University,Urban,"Yes, No",Large,"engineering, computerscience, music, art",No,No,No,national
-University of Chicago,Urban,"Yes, No",Large,"computerscience, music, art",No,No,No,national
-University of North Carolina - Chapel Hill,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, journalism, music, art",No,No,No,national
-University of Notre Dame,Urban,"Yes, No",Large,"engineering, business, computerscience, journalism, music, art, architecture",No,No,No,national
-University of Pennsylvania,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, music, art, architecture",No,No,No,national
-University of Rochester,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, music, art",No,No,No,national
-University of Southern California,Urban,"Yes, No",Large,"engineering, business, computerscience, journalism, music, art, architecture",No,No,No,national
-University of Virginia,Urban,"Yes, No",Large,"engineering, business, nursing, computerscience, music, art, architecture",No,No,No,national
-Vanderbilt University,Urban,"Yes, No",Large,"engineering, computerscience, music, art",No,No,No,national
-Wake Forest University,Urban,"Yes, No",Large,"engineering, computerscience, music, art",No,No,No,national
-Washington University in St. Louis,Urban,"Yes, No",Large,"engineering, business, computerscience, journalism, music, art, architecture",No,No,No,national
-Yale University,Urban,"Yes, No",Large,"engineering, computerscience, music, art, architecture",No,No,No,national
+Wesleyan University,Rural,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
+Williams College,Rural,"Yes, No",Small,"Computer Science, music, art",No,No,No,national
+Boston College,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, music, art",No,No,No,national
+Boston University,Urban,"Yes, No",Large,"engineering, business, Computer Science, journalism, music, art",No,No,No,national
+Brown University,Urban,"Yes, No",Large,"engineering, business, Computer Science, music, art, architecture",No,No,No,national
+California Institute of Technology,Urban,"Yes, No",Large,"engineering, Computer Science",No,No,No,national
+Case Western Reserve University,Urban,"Yes, No",Large,"engineering, nursing, Computer Science, music, art",No,No,No,national
+Columbia University,Urban,"Yes, No",Large,"engineering, business, Computer Science, music, art, architecture",No,No,No,national
+Cornell University,Rural,"Yes, No",Large,"engineering, business, Computer Science, music, art, architecture",No,No,No,national
+Dartmouth College,Rural,"Yes, No",Large,"engineering, Computer Science, music, art",No,No,No,national
+Duke University,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, music, art",No,No,No,national
+Emory University,Urban,"Yes, No",Large,"business, nursing, Computer Science, music, art",No,No,No,national
+Georgetown University,Urban,"Yes",Large,"business, Computer Science, music, art",No,No,No,national
+Harvard University,Urban,"Yes, No",Large,"engineering, business, Computer Science, music, art",No,No,No,national
+Johns Hopkins University,Urban,"Yes, No",Large,"engineering, Computer Science, music, art",No,No,No,national
+Lehigh University,Urban,"Yes, No",Large,"engineering, business, Computer Science, journalism, music, art, architecture",No,No,No,national
+MIT,Urban,"Yes, No",Large,"engineering, business, Computer Science, music, art, architecture",No,No,No,national
+Northeastern University,Urban,"Yes, No",Large,"engineering, business, Computer Science, journalism, music, art, architecture",No,No,No,national
+Northwestern University,Urban,"Yes, No",Large,"engineering, business, Computer Science, journalism, music, art",No,No,No,national
+Princeton University,Urban,"Yes, No",Large,"engineering, Computer Science, music, art, architecture",No,No,No,national
+Rice University,Urban,"Yes, No",Large,"engineering, Computer Science, music, art, architecture",No,No,No,national
+Stanford University,Urban,"Yes, No",Large,"engineering, Computer Science, music, art",No,No,No,national
+Tufts University,Urban,"Yes, No",Large,"engineering, Computer Science, music, art",No,No,No,national
+University of Chicago,Urban,"Yes, No",Large,"Computer Science, music, art",No,No,No,national
+University of North Carolina - Chapel Hill,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, journalism, music, art",No,No,No,national
+University of Notre Dame,Urban,"Yes, No",Large,"engineering, business, Computer Science, journalism, music, art, architecture",No,No,No,national
+University of Pennsylvania,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, music, art, architecture",No,No,No,national
+University of Rochester,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, music, art",No,No,No,national
+University of Southern California,Urban,"Yes, No",Large,"engineering, business, Computer Science, journalism, music, art, architecture",No,No,No,national
+University of Virginia,Urban,"Yes, No",Large,"engineering, business, nursing, Computer Science, music, art, architecture",No,No,No,national
+Vanderbilt University,Urban,"Yes, No",Large,"engineering, Computer Science, music, art",No,No,No,national
+Wake Forest University,Urban,"Yes, No",Large,"engineering, Computer Science, music, art",No,No,No,national
+Washington University in St. Louis,Urban,"Yes, No",Large,"engineering, business, Computer Science, journalism, music, art, architecture",No,No,No,national
+Yale University,Urban,"Yes, No",Large,"engineering, Computer Science, music, art, architecture",No,No,No,national
