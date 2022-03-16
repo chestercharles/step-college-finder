@@ -43,7 +43,7 @@ export default function New() {
           name="response"
           error={actionData?.formError}
           options={[
-            { label: "In-state Universitie", value: "instate" },
+            { label: "In-state Universities", value: "instate" },
             {
               label: "Out-of-state Universities",
               value: "outOfState",
