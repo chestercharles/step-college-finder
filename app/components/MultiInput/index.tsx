@@ -22,7 +22,7 @@ export function MultiInput({
     <fieldset>
       <legend>{label}</legend>
       {options.map((option) => (
-        <p>
+        <p key={`${name}-${option.label}-${option.value}`}>
           <input
             type={type}
             id={option.value}
