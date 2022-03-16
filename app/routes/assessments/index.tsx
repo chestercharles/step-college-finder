@@ -1,5 +1,5 @@
 import { LoaderFunction, useLoaderData } from "remix";
-import { getSessionFromRequest } from "~/sessions";
+import { getSessionFromRequest, logout, redirectToLogin } from "~/sessions";
 import { GetUser } from "~/modules/user";
 import getDbClient from "~/infra/getDbClient";
 import UserRepo from "~/infra/UserRepo";
@@ -18,10 +18,15 @@ function getUser(userId: string) {
 
 export const loader: LoaderFunction = async ({
   request,
-}): Promise<LoaderData> => {
+}): Promise<LoaderData | Response> => {
   const session = await getSessionFromRequest(request);
   const userId = session.get("userId");
   const user = await getUser(userId);
+  if (!user) {
+    await logout(request);
+    return redirectToLogin(session);
+  }
+
   const assessments = await api.getUserAssessments(userId);
   return {
     name: user.firstName,
