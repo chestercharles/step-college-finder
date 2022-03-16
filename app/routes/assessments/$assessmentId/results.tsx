@@ -1,17 +1,26 @@
+import React from "react";
 import invariant from "invariant";
 import { LoaderFunction, useLoaderData } from "remix";
 import { api as scoringApi } from "~/modules/scoring/infra";
 import { api as collegeApi } from "~/modules/college/infra";
 
+type FormattedScoredCollege = {
+  name: string;
+  score: number;
+  matches: string[];
+};
+
 type LoaderData = {
-  results: { name: string; score: number; matches: string[] }[];
+  topColleges: FormattedScoredCollege[];
+  otherGoodChoices: FormattedScoredCollege[];
+  otherResults: FormattedScoredCollege[];
 };
 
 function buildViewModal(params: {
   scoredAssessment: scoringApi.ScoredAssessmentDTO;
   colleges: collegeApi.CollegeDTO[];
 }) {
-  return params.colleges
+  const formattedColleges = params.colleges
     .map((college) => {
       const scoredCollege = params.scoredAssessment.scoredColleges.find(
         (scoredCollege) => scoredCollege.collegeId === college.id
@@ -29,6 +38,16 @@ function buildViewModal(params: {
       };
     })
     .sort((a, b) => b.score - a.score);
+
+  const scores = formattedColleges.map((f) => f.score);
+  const maxScore = Math.max(...scores);
+  const nextTopScore = Math.max(...scores.filter((s) => s < maxScore));
+
+  return {
+    topColleges: formattedColleges.filter((f) => f.score === maxScore),
+    otherGoodChoices: formattedColleges.filter((f) => f.score === nextTopScore),
+    otherResults: formattedColleges.filter((f) => f.score < nextTopScore),
+  };
 }
 
 export const loader: LoaderFunction = async ({
@@ -39,12 +58,45 @@ export const loader: LoaderFunction = async ({
     params.assessmentId
   );
   const colleges = await collegeApi.getColleges();
-  const results = buildViewModal({ colleges, scoredAssessment });
-  return { results };
+  return buildViewModal({ colleges, scoredAssessment });
 };
 
+function ScoreTable({
+  title,
+  colleges,
+}: {
+  title: string;
+  colleges: FormattedScoredCollege[];
+}) {
+  return (
+    <>
+      <h5>{title}</h5>
+      <table>
+        <thead>
+          <tr>
+            <th>College</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {colleges.map((college) => {
+            return (
+              <tr>
+                <td>{college.name}</td>
+                <td>{college.score}</td>
+                <td>{college.matches.sort().join(", ")}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
+}
+
 export default function Results() {
-  const { results } = useLoaderData<LoaderData>();
+  const results = useLoaderData<LoaderData>();
+  const [showOtherColleges, setShowOtherColleges] = React.useState(false);
   return (
     <div>
       <main>
@@ -54,25 +106,20 @@ export default function Results() {
             <a href="/assessments">Back to Assessments</a>
           </small>
         </h4>
-        <table>
-          <thead>
-            <tr>
-              <th>College</th>
-              <th>Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            {results.map((result) => {
-              return (
-                <tr>
-                  <td>{result.name}</td>
-                  <td>{result.score}</td>
-                  <td>{result.matches.sort().join(", ")}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        <ScoreTable title="Top Choices" colleges={results.topColleges} />
+        <ScoreTable
+          title="Other Good Choices"
+          colleges={results.otherGoodChoices}
+        />
+        <br />
+        {!showOtherColleges && (
+          <button onClick={() => setShowOtherColleges(true)}>
+            Show other colleges
+          </button>
+        )}
+        {showOtherColleges && (
+          <ScoreTable title="Other Colleges" colleges={results.otherResults} />
+        )}
       </main>
     </div>
   );

@@ -82,9 +82,6 @@ const calculateTotalScore: calculateTotalScore = (params) => {
         exclusiveQuestion.match_value &&
         collegeValue?.value !== exclusiveQuestion.exclude_value
       ) {
-        console.log("---");
-        console.log("no score detail", exclusiveQuestion);
-        console.log("no score detail", collegeValue);
         return 0;
       }
     }
