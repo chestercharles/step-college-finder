@@ -17,6 +17,7 @@ import {
 } from "~/sessions";
 import { Input, Container } from "~/components";
 import { badRequest } from "~/util";
+import React from "react";
 
 export const meta: MetaFunction = () => {
   return { title: "Login" };
@@ -76,7 +77,7 @@ export default function Login() {
   const actionData = useActionData<ActionData>();
   return (
     <Container>
-      <h1>Login</h1>
+      <Header>Login</Header>
       <Form method="post">
         <Input label="Email" name="email" type="email" placeholder="email" />
         <Input
@@ -94,3 +95,7 @@ export default function Login() {
     </Container>
   );
 }
+
+const Header: React.FC = ({ children }) => {
+  return <h1>{children}</h1>;
+};
