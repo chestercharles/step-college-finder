@@ -18,6 +18,7 @@ type LoaderData = {
   prompt: string;
   allowMultiple: boolean;
   attribute_values: string[];
+  questionId: string;
 };
 
 async function getCurrentQuestion(params: {
@@ -58,6 +59,7 @@ export const loader: LoaderFunction = async ({
       .map((attributeValue) => attributeValue.value)
       .concat(question.skip_value)
       .filter(Boolean),
+    questionId: question.id,
   };
 };
 
@@ -73,19 +75,19 @@ export const action: ActionFunction = async ({
   request,
   params,
 }): Promise<Response> => {
+  const assessmentId = params.assessmentId;
+  invariant(assessmentId, "expected params.assessmentId");
+  const questionId = params.questionId;
+  invariant(questionId, "expected params.questionId");
+
   const formData = await request.formData();
-  const responses = formData.getAll("response") as string[];
+  const responses = formData.getAll(questionId) as string[];
 
   if (responses.length === 0) {
     return badRequest<ActionData>({
       formError: "Must select a response.",
     });
   }
-
-  const assessmentId = params.assessmentId;
-  invariant(assessmentId, "expected params.assessmentId");
-  const questionId = params.questionId;
-  invariant(questionId, "expected params.questionId");
 
   await assessmentApi.addAssessmentResponse({
     assessmentId,
@@ -115,7 +117,7 @@ const routeComponent: RouteComponent = () => {
     <Container>
       <Form method="post">
         <MultiInput
-          name="response"
+          name={loaderData?.questionId}
           type={loaderData?.allowMultiple ? "radio" : "checkbox"}
           label={loaderData.prompt}
           error={actionData?.formError}

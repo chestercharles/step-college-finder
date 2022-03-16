@@ -22,15 +22,23 @@ type addResponseToAssessment = (
 export const addResponseToAssessment: addResponseToAssessment =
   (assessment) => (payload) => {
     if (assessmentInProgress(assessment)) {
+      const existingResponse = assessment.responses.find(
+        (response) => response.questionId === payload.questionId
+      );
       const newResponse: AssessmentResponse = {
-        id: v4(),
+        id: existingResponse?.id ?? v4(),
         skipped: payload.skipped,
         responseValues: payload.responseValues,
         questionId: payload.questionId,
       };
       return {
         ...assessment,
-        responses: [...assessment.responses, newResponse],
+        responses: [
+          ...assessment.responses.filter(
+            (response) => response.id !== newResponse.id
+          ),
+          newResponse,
+        ],
       };
     }
 

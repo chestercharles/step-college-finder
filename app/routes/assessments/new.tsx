@@ -43,9 +43,9 @@ export default function New() {
           name="response"
           error={actionData?.formError}
           options={[
-            { label: "Arizona Universities (In-state)", value: "instate" },
+            { label: "In-state Universitie", value: "instate" },
             {
-              label: "Arizona Universities (Out-of-state)",
+              label: "Out-of-state Universities",
               value: "outOfState",
             },
           ]}
