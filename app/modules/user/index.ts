@@ -76,12 +76,12 @@ type GetUser = (userRepo: UserRepo) => (userId: UserId) => Promise<{
   email: string;
   firstName: string;
   lastName: string;
-}>;
+} | null>;
 
 export const GetUser: GetUser = (userRepo) => async (userId) => {
   const [user] = await userRepo.find({ id: userId });
   if (!user) {
-    throw new Error("User not found");
+    return null;
   }
   return {
     id: user.id,
