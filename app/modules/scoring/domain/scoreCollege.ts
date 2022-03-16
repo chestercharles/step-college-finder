@@ -74,14 +74,11 @@ const calculateTotalScore: calculateTotalScore = (params) => {
       (scoreDetails) => scoreDetails.questionId === exclusiveQuestion.id
     );
     if (!scoreDetail) {
-      const collegeValue = params.college.attribute_values.find(
-        (v) => v.question_id === exclusiveQuestion.id
-      );
+      const collegeValues = params.college.attribute_values
+        .filter((v) => v.question_id === exclusiveQuestion.id)
+        .map((c) => c.value);
 
-      if (
-        exclusiveQuestion.match_value &&
-        collegeValue?.value !== exclusiveQuestion.exclude_value
-      ) {
+      if (!collegeValues.includes(exclusiveQuestion.exclude_value)) {
         return 0;
       }
     }

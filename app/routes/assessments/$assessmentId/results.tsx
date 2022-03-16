@@ -75,7 +75,7 @@ function ScoreTable({
         <thead>
           <tr>
             <th>College</th>
-            <th>Score</th>
+            <th>Features</th>
           </tr>
         </thead>
         <tbody>
@@ -83,7 +83,6 @@ function ScoreTable({
             return (
               <tr>
                 <td>{college.name}</td>
-                <td>{college.score}</td>
                 <td>{college.matches.sort().join(", ")}</td>
               </tr>
             );
