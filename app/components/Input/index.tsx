@@ -4,6 +4,7 @@ type InputProps = {
   type?: string;
   error?: string;
   value?: any;
+  placeholder?: string;
 };
 
 export function Input({
@@ -12,6 +13,7 @@ export function Input({
   type = "text",
   error = "",
   value,
+  placeholder = "",
 }: InputProps) {
   return (
     <p>
@@ -22,7 +24,7 @@ export function Input({
         name={name}
         value={value}
         id="exampleInputEmail1"
-        placeholder="Email"
+        placeholder={placeholder}
       />
       {error && <div>{error}</div>}
     </p>

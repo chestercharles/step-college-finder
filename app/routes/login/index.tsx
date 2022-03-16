@@ -78,12 +78,13 @@ export default function Login() {
     <Container>
       <h1>Login</h1>
       <Form method="post">
-        <Input label="Email" name="email" type="email" />
+        <Input label="Email" name="email" type="email" placeholder="email" />
         <Input
           label="Password"
           name="password"
           type="password"
           error={actionData?.formError}
+          placeholder="password"
         />
         <button type="submit">Login</button>
         <p>

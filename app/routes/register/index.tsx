@@ -141,22 +141,26 @@ const routeComponent: RouteComponent = () => {
           label="First Name"
           name="first_name"
           error={actionData?.fieldErrors?.firstName}
+          placeholder="First Name"
         />
         <Input
           label="Last Name"
           name="last_name"
           error={actionData?.fieldErrors?.lastName}
+          placeholder="Last Name"
         />
         <Input
           label="Email"
           name="email"
           error={actionData?.fieldErrors?.email}
+          placeholder="email"
         />
         <Input
           label="Password"
           name="password"
           type="password"
           error={actionData?.fieldErrors?.password}
+          placeholder="password"
         />
         <button type="submit">Register</button>
         <p>
