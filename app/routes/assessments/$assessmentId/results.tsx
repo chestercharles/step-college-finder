@@ -5,6 +5,7 @@ import { api as scoringApi } from "~/modules/scoring/infra";
 import { api as collegeApi } from "~/modules/college/infra";
 import { Button, Container, Main } from "~/components";
 import { attributes } from "~/attributes";
+import { Tag } from "~/components/Tag";
 type FormattedScoredCollege = {
   name: string;
   score: number;
@@ -102,7 +103,11 @@ function ScoreTable({
           return (
             <tr>
               <td>{college.name}</td>
-              <td>{college.matches.sort().join(", ")}</td>
+              <td>
+                {college.matches.sort().map((m) => (
+                  <Tag tag={m} />
+                ))}
+              </td>
               <td>{collegeAttributes?.["Acceptance Rate"]}</td>
               <td>{collegeAttributes?.["Top Financial Aid School"]}</td>
             </tr>
