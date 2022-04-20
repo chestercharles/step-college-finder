@@ -125,12 +125,10 @@ exports.seed = async function (knex) {
     {
       id: q7Id,
       prompt: "Are you Interested in Dreamer-friendly schools?",
-      order: 6,
+      order: 7,
       skip_value: "",
       is_boolean: true,
       exclusive: false,
-      exclude_value: "",
-      match_value: "Dreamer",
     },
   ]);
   const rows = await readCSV("../colleges.csv");
