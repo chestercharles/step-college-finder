@@ -74,7 +74,16 @@ export default function Assessments() {
                 <h1 className="display-4">Hello, {user.name}!</h1>{" "}
                 {user.assessments.length > 0 && (
                   <p className="lead">
-                    <a href={"/assessments/view"}>Completed Assessments</a>
+                    <a
+                      style={{
+                        background: "rgba(255,255,255, .7)",
+                        padding: "8px",
+                        borderRadius: "15px",
+                      }}
+                      href={"/assessments/view"}
+                    >
+                      Completed Assessments
+                    </a>
                   </p>
                 )}
                 <p className="lead">
