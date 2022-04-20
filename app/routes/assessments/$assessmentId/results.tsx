@@ -109,7 +109,13 @@ function ScoreTable({
                 ))}
               </td>
               <td>{collegeAttributes?.["Acceptance Rate"]}</td>
-              <td>{collegeAttributes?.["Top Financial Aid School"]}</td>
+              <td>
+                {collegeAttributes?.["Top Financial Aid School"] === "Yes" ? (
+                  <>&#11088;</>
+                ) : (
+                  ""
+                )}
+              </td>
             </tr>
           );
         })}
