@@ -3,8 +3,9 @@ import { getSessionFromRequest, logout, redirectToLogin } from "~/sessions";
 import { GetUser } from "~/modules/user";
 import getDbClient from "~/infra/getDbClient";
 import UserRepo from "~/infra/UserRepo";
-import { Container } from "~/components";
+import { Button, Container, Li, Main, Ul } from "~/components";
 import { api } from "~/modules/assessment/infra";
+import { Section } from "~/components/Section";
 
 type LoaderData = {
   name: string;
@@ -42,7 +43,7 @@ export const loader: LoaderFunction = async ({
 function LogoutButton() {
   return (
     <form action="/logout" method="post">
-      <button type="submit">Logout</button>
+      <Button type="submit">Logout</Button>
     </form>
   );
 }
@@ -51,18 +52,22 @@ export default function Assessments() {
   const user = useLoaderData<LoaderData>();
   return (
     <Container>
-      <main>
-        <h4>{user.name}'s Assessments</h4>
-        <a href={`/assessments/new`}>Start New Assessment</a>
-        <h5>Completed Assessments</h5>
-        <ul>
-          {user.assessments.map(({ id, name }) => (
-            <li key={id}>
-              <a href={`/assessments/${id}`}>{name}</a>
-            </li>
-          ))}
-        </ul>
-      </main>
+      <Main>
+        <Section>
+          <h4>{user.name}'s Assessments</h4>
+          <a href={`/assessments/new`}>Start New Assessment</a>
+        </Section>
+        <Section>
+          <h5>Completed Assessments</h5>
+          <Ul>
+            {user.assessments.map(({ id, name }) => (
+              <Li key={id}>
+                <a href={`/assessments/${id}`}>{name}</a>
+              </Li>
+            ))}
+          </Ul>
+        </Section>
+      </Main>
       <LogoutButton />
     </Container>
   );

@@ -16,17 +16,23 @@ export function Input({
   placeholder = "",
 }: InputProps) {
   return (
-    <p>
-      <label htmlFor={name}>{label}</label>
-      <br />
+    <div className="mb-3">
+      <label htmlFor={name} className="form-label">
+        {label}
+      </label>
       <input
+        className="form-control"
         type={type}
         name={name}
         value={value}
         id="exampleInputEmail1"
         placeholder={placeholder}
       />
-      {error && <div>{error}</div>}
-    </p>
+      {error && (
+        <div id="emailHelp" className="form-text">
+          {error}
+        </div>
+      )}
+    </div>
   );
 }

@@ -8,7 +8,7 @@ import {
   useActionData,
   useLoaderData,
 } from "remix";
-import { Container, MultiInput } from "~/components";
+import { Container, Main, MultiInput } from "~/components";
 import { api as assessmentApi } from "~/modules/assessment/infra/";
 import { api, api as collegeApi } from "~/modules/college/infra";
 import { badRequest } from "~/util";
@@ -115,19 +115,21 @@ const routeComponent: RouteComponent = () => {
   const actionData = useActionData<ActionData>();
   return (
     <Container>
-      <Form method="post">
-        <MultiInput
-          name={loaderData?.questionId}
-          type={loaderData?.allowMultiple ? "radio" : "checkbox"}
-          label={loaderData.prompt}
-          error={actionData?.formError}
-          options={loaderData.attribute_values.map((value) => ({
-            label: value,
-            value: value,
-          }))}
-        />
-        <button type="submit">Next</button>
-      </Form>
+      <Main>
+        <Form method="post">
+          <MultiInput
+            name={loaderData?.questionId}
+            type={loaderData?.allowMultiple ? "radio" : "checkbox"}
+            label={loaderData.prompt}
+            error={actionData?.formError}
+            options={loaderData.attribute_values.map((value) => ({
+              label: value,
+              value: value,
+            }))}
+          />
+          <button type="submit">Next</button>
+        </Form>
+      </Main>
     </Container>
   );
 };

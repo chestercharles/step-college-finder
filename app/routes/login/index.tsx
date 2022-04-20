@@ -15,7 +15,7 @@ import {
   isNotLoggedIn,
   redirectToApp,
 } from "~/sessions";
-import { Input, Container } from "~/components";
+import { Input, Container, Button } from "~/components";
 import { badRequest } from "~/util";
 
 export const meta: MetaFunction = () => {
@@ -86,7 +86,7 @@ export default function Login() {
           error={actionData?.formError}
           placeholder="password"
         />
-        <button type="submit">Login</button>
+        <Button type="submit">Login</Button>
         <p>
           Don't have an account? <a href="/register">Register here</a>
         </p>

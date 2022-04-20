@@ -3,6 +3,7 @@ import invariant from "invariant";
 import { LoaderFunction, useLoaderData } from "remix";
 import { api as scoringApi } from "~/modules/scoring/infra";
 import { api as collegeApi } from "~/modules/college/infra";
+import { Button, Container, Main } from "~/components";
 
 type FormattedScoredCollege = {
   name: string;
@@ -64,31 +65,43 @@ export const loader: LoaderFunction = async ({
 function ScoreTable({
   title,
   colleges,
+  type,
 }: {
   title: string;
   colleges: FormattedScoredCollege[];
+  type: "primary" | "secondary" | "tertiary";
 }) {
   return (
     <>
-      <h5>{title}</h5>
-      <table>
-        <thead>
-          <tr>
-            <th>College</th>
-            <th>Features</th>
-          </tr>
-        </thead>
-        <tbody>
-          {colleges.map((college) => {
-            return (
-              <tr>
-                <td>{college.name}</td>
-                <td>{college.matches.sort().join(", ")}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+      <thead>
+        <tr
+          className={
+            {
+              primary: "table-success",
+              secondary: "table-primary",
+              tertiary: "table-secondary",
+            }[type]
+          }
+        >
+          <th colSpan={2}>
+            <h5>{title}</h5>
+          </th>
+        </tr>
+        <tr>
+          <th>College</th>
+          <th>Features</th>
+        </tr>
+      </thead>
+      <tbody>
+        {colleges.map((college) => {
+          return (
+            <tr>
+              <td>{college.name}</td>
+              <td>{college.matches.sort().join(", ")}</td>
+            </tr>
+          );
+        })}
+      </tbody>
     </>
   );
 }
@@ -97,29 +110,41 @@ export default function Results() {
   const results = useLoaderData<LoaderData>();
   const [showOtherColleges, setShowOtherColleges] = React.useState(false);
   return (
-    <div>
-      <main>
+    <Container>
+      <Main>
         <h4>
           Assessment Results{" "}
           <small>
             <a href="/assessments">Back to Assessments</a>
           </small>
         </h4>
-        <ScoreTable title="Top Choices" colleges={results.topColleges} />
-        <ScoreTable
-          title="Other Good Choices"
-          colleges={results.otherGoodChoices}
-        />
-        <br />
+        <table className="table">
+          <ScoreTable
+            title="Top Choices"
+            type="primary"
+            colleges={results.topColleges}
+          />
+          <ScoreTable
+            title="Other Good Choices"
+            type="secondary"
+            colleges={results.otherGoodChoices}
+          />
+          <tr></tr>
+
+          {showOtherColleges && (
+            <ScoreTable
+              title="Other Colleges"
+              type="tertiary"
+              colleges={results.otherResults}
+            />
+          )}
+        </table>
         {!showOtherColleges && (
-          <button onClick={() => setShowOtherColleges(true)}>
+          <Button onClick={() => setShowOtherColleges(true)}>
             Show other colleges
-          </button>
+          </Button>
         )}
-        {showOtherColleges && (
-          <ScoreTable title="Other Colleges" colleges={results.otherResults} />
-        )}
-      </main>
-    </div>
+      </Main>
+    </Container>
   );
 }

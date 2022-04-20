@@ -2,14 +2,13 @@ const csv = require("csv-parser");
 const fs = require("fs");
 const uuid = require("uuid");
 
-const q1Id = "08e64644-9099-453b-9e19-1ba98a84d4d3";
+const q1Id = "5022cdf7-ebb9-4b34-8ffb-a7956990c19f";
 const q2Id = "9ed19f22-edbd-4517-9ca6-2c73702ccfe4";
 const q3Id = "8bf6a449-09d2-4bf9-a884-6512c165abe3";
 const q4Id = "5b0c0af9-1332-4a2b-94f1-8a5bf5a47054";
 const q5Id = "f0e9ebd4-e7fd-4b38-8c2c-af716a54d5b8";
 const q6Id = "cdcd32ed-371c-4a4c-9654-7714e0cf07e5";
-const q7Id = "b4376677-256e-4e6b-9012-cf21c1f12297";
-const q8Id = "51edc667-0754-4f75-8942-b320fd2355c7";
+const q7Id = "51edc667-0754-4f75-8942-b320fd2355c7";
 
 async function readCSV(filename) {
   const results = [];
@@ -45,18 +44,17 @@ exports.seed = async function (knex) {
   }
 
   async function insertRow(row) {
-    const { School, Q2, Q3, Q4, Q5, Q6, Q7, Q8, Q10 } = row;
+    const { School, Q1, Q2, Q3, Q4, Q5, Q6, Q7 /*Q9, Q10, Q11 */ } = row;
     const collegeId = uuid.v4();
     await knex("colleges").insert({ id: collegeId, name: School });
     await Promise.all([
-      insertAttribute({ collegeId, questionId: q1Id, values: Q2.split(",") }),
-      insertAttribute({ collegeId, questionId: q2Id, values: Q3.split(",") }),
-      insertAttribute({ collegeId, questionId: q3Id, values: Q4.split(",") }),
-      insertAttribute({ collegeId, questionId: q4Id, values: Q5.split(",") }),
-      insertAttribute({ collegeId, questionId: q5Id, values: Q6.split(",") }),
-      insertAttribute({ collegeId, questionId: q6Id, values: Q7.split(",") }),
-      insertAttribute({ collegeId, questionId: q7Id, values: Q8.split(",") }),
-      insertAttribute({ collegeId, questionId: q8Id, values: Q10.split(",") }),
+      insertAttribute({ collegeId, questionId: q1Id, values: Q1.split(",") }),
+      insertAttribute({ collegeId, questionId: q2Id, values: Q2.split(",") }),
+      insertAttribute({ collegeId, questionId: q3Id, values: Q3.split(",") }),
+      insertAttribute({ collegeId, questionId: q4Id, values: Q4.split(",") }),
+      insertAttribute({ collegeId, questionId: q5Id, values: Q5.split(",") }),
+      insertAttribute({ collegeId, questionId: q6Id, values: Q6.split(",") }),
+      insertAttribute({ collegeId, questionId: q7Id, values: Q7.split(",") }),
     ]);
   }
 
@@ -69,28 +67,31 @@ exports.seed = async function (knex) {
   await knex("questions").insert([
     {
       id: q1Id,
-      prompt: "Do you have a location preference?",
-      order: 0,
-      skip_value: "I have no preference",
-      is_boolean: true,
+      prompt:
+        "What regions of the country are you interested in? Select all that apply.",
+      order: 1,
+      skip_value: "",
+      is_boolean: false,
       exclusive: false,
+      exclude_value: "",
+      match_value: "",
     },
     {
       id: q2Id,
-      prompt: "Will you be submitting official standardized test scores?",
-      order: 2,
-      skip_value: "",
-      is_boolean: true,
-      exclusive: true,
-      exclude_value: "No",
-    },
-    {
-      id: q3Id,
       prompt: "In which classroom will you thrive?",
       order: 3,
       skip_value: "Either",
       is_boolean: true,
       exclusive: false,
+    },
+    {
+      id: q3Id,
+      prompt: "Are you a strong standardized test taker?",
+      order: 2,
+      skip_value: "",
+      is_boolean: true,
+      exclusive: true,
+      exclude_value: "No",
     },
     {
       id: q4Id,
@@ -123,24 +124,13 @@ exports.seed = async function (knex) {
     },
     {
       id: q7Id,
-      prompt: "Do you identify as Native or Black?",
-      order: 7,
+      prompt: "Are you Interested in Dreamer-friendly schools?",
+      order: 6,
       skip_value: "",
       is_boolean: true,
       exclusive: true,
       exclude_value: "No",
-      match_value: "Native/Black",
-    },
-    {
-      id: q8Id,
-      prompt:
-        "What regions of the country are you interested in? Select all that apply.",
-      order: 1,
-      skip_value: "",
-      is_boolean: false,
-      exclusive: false,
-      exclude_value: "",
-      match_value: "",
+      match_value: "Dreamer",
     },
   ]);
   const rows = await readCSV("../colleges.csv");

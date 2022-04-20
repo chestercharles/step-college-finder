@@ -1,13 +1,14 @@
 import { useParams } from "react-router";
+import { Container, Main } from "~/components";
 
 export default function Complete() {
   const params = useParams();
   return (
-    <div>
-      <main>
+    <Container>
+      <Main>
         <h4>Assessment Complete</h4>
         <a href={`/assessments/${params.assessmentId}/results`}>View Results</a>
-      </main>
-    </div>
+      </Main>
+    </Container>
   );
 }
