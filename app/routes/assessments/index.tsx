@@ -3,9 +3,9 @@ import { getSessionFromRequest, logout, redirectToLogin } from "~/sessions";
 import { GetUser } from "~/modules/user";
 import getDbClient from "~/infra/getDbClient";
 import UserRepo from "~/infra/UserRepo";
-import { Button, Container, Li, Main, Ul } from "~/components";
-import { api } from "~/modules/assessment/infra";
+import { Container, StepBackground, Main } from "~/components";
 import { Section } from "~/components/Section";
+import { api } from "~/modules/assessment/infra";
 
 type LoaderData = {
   name: string;
@@ -42,33 +42,56 @@ export const loader: LoaderFunction = async ({
 
 function LogoutButton() {
   return (
-    <form action="/logout" method="post">
-      <Button type="submit">Logout</Button>
-    </form>
+    <div style={{ position: "absolute", bottom: 5, right: "50%" }}>
+      <form action="/logout" method="post">
+        <button
+          style={{
+            background: "none!important",
+            border: "none",
+            padding: "0!important",
+            color: "#069",
+            textDecoration: "underline",
+            cursor: "pointer",
+          }}
+          type="submit"
+        >
+          Logout
+        </button>
+      </form>
+    </div>
   );
 }
 
 export default function Assessments() {
   const user = useLoaderData<LoaderData>();
   return (
-    <Container>
-      <Main>
-        <Section>
-          <h4>{user.name}'s Assessments</h4>
-          <a href={`/assessments/new`}>Start New Assessment</a>
-        </Section>
-        <Section>
-          <h5>Completed Assessments</h5>
-          <Ul>
-            {user.assessments.map(({ id, name }) => (
-              <Li key={id}>
-                <a href={`/assessments/${id}`}>{name}</a>
-              </Li>
-            ))}
-          </Ul>
-        </Section>
-      </Main>
-      <LogoutButton />
-    </Container>
+    <StepBackground>
+      <Container>
+        <Main>
+          <Section>
+            <div className="jumbotron">
+              <div className="container text-center">
+                <h1 className="display-4">Hello, {user.name}!</h1>{" "}
+                {user.assessments.length > 0 && (
+                  <p className="lead">
+                    <a href={"/assessments/view"}>Completed Assessments</a>
+                  </p>
+                )}
+                <p className="lead">
+                  <a
+                    className="btn btn-primary btn-lg"
+                    href={`/assessments/new`}
+                    role="button"
+                  >
+                    Start New Assessment
+                  </a>
+                </p>
+              </div>
+            </div>
+          </Section>
+        </Main>
+        <LogoutButton />
+      </Container>
+    </StepBackground>
   );
 }
