@@ -4,7 +4,7 @@ import { LoaderFunction, useLoaderData } from "remix";
 import { api as scoringApi } from "~/modules/scoring/infra";
 import { api as collegeApi } from "~/modules/college/infra";
 import { Button, Container, Main } from "~/components";
-
+import { attributes } from "~/attributes";
 type FormattedScoredCollege = {
   name: string;
   score: number;
@@ -83,21 +83,28 @@ function ScoreTable({
             }[type]
           }
         >
-          <th colSpan={2}>
+          <th colSpan={4}>
             <h5>{title}</h5>
           </th>
         </tr>
         <tr>
           <th>College</th>
           <th>Features</th>
+          <th>Acceptance Rate</th>
+          <th>Top Financial Aid School</th>
         </tr>
       </thead>
       <tbody>
         {colleges.map((college) => {
+          const collegeAttributes = attributes.find(
+            (a) => a.School === college.name
+          );
           return (
             <tr>
               <td>{college.name}</td>
               <td>{college.matches.sort().join(", ")}</td>
+              <td>{collegeAttributes?.["Acceptance Rate"]}</td>
+              <td>{collegeAttributes?.["Top Financial Aid School"]}</td>
             </tr>
           );
         })}

@@ -1,464 +1,464 @@
-[
+export const attributes = [
   {
-    "School": "Amherst College",
+    School: "Amherst College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Babson College",
+    School: "Babson College",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Barnard College",
+    School: "Barnard College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Bates College",
+    School: "Bates College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Boston College",
+    School: "Boston College",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Boston University",
+    School: "Boston University",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Bowdoin College",
+    School: "Bowdoin College",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Brown University",
+    School: "Brown University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Bryn Mawr College",
+    School: "Bryn Mawr College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "California Institute of Technology",
+    School: "California Institute of Technology",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Carleton College",
+    School: "Carleton College",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Case Western Reserve University",
+    School: "Case Western Reserve University",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Claremont McKenna College",
+    School: "Claremont McKenna College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Colby College",
+    School: "Colby College",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Colgate University",
+    School: "Colgate University",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Colorado College",
+    School: "Colorado College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Columbia University",
+    School: "Columbia University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Connecticut College",
+    School: "Connecticut College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Cornell University",
+    School: "Cornell University",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Dartmouth College",
+    School: "Dartmouth College",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Davidson College",
+    School: "Davidson College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Denison University",
+    School: "Denison University",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Dickinson College",
+    School: "Dickinson College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Duke University",
+    School: "Duke University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Emory University",
+    School: "Emory University",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Franklin & Marshall College",
+    School: "Franklin & Marshall College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Georgetown University",
+    School: "Georgetown University",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Grinnell College",
+    School: "Grinnell College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Hamilton College",
+    School: "Hamilton College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Harvard University",
+    School: "Harvard University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Harvey Mudd College",
+    School: "Harvey Mudd College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Haverford College",
+    School: "Haverford College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Johns Hopkins University",
+    School: "Johns Hopkins University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Kenyon College",
+    School: "Kenyon College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Lafayette College",
+    School: "Lafayette College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Lehigh University",
+    School: "Lehigh University",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Macalester College",
+    School: "Macalester College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Middlebury College",
+    School: "Middlebury College",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "MIT",
+    School: "MIT",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Mt. Holyoke College",
+    School: "Mt. Holyoke College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Northeastern University",
+    School: "Northeastern University",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Northwestern University",
+    School: "Northwestern University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Oberlin College",
+    School: "Oberlin College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Occidental College",
+    School: "Occidental College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Pitzer College",
+    School: "Pitzer College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Pomona College",
+    School: "Pomona College",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Princeton University",
+    School: "Princeton University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Reed College",
+    School: "Reed College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Rice University",
+    School: "Rice University",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Scripps College",
+    School: "Scripps College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Skidmore College",
+    School: "Skidmore College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Smith College",
+    School: "Smith College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Stanford University",
+    School: "Stanford University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Swarthmore College",
+    School: "Swarthmore College",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Trinity College",
+    School: "Trinity College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Tufts University",
+    School: "Tufts University",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "U.S. Air Force Academy",
+    School: "U.S. Air Force Academy",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "U.S. Military Academy",
+    School: "U.S. Military Academy",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "U.S. Naval Academy",
+    School: "U.S. Naval Academy",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Union College",
+    School: "Union College",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "University of Chicago",
+    School: "University of Chicago",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "University of North Carolina - Chapel Hill",
+    School: "University of North Carolina - Chapel Hill",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "University of Notre Dame",
+    School: "University of Notre Dame",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "University of Pennsylvania",
+    School: "University of Pennsylvania",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "University of Richmond",
+    School: "University of Richmond",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "University of Rochester",
+    School: "University of Rochester",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "University of Southern California",
+    School: "University of Southern California",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "University of Virginia",
+    School: "University of Virginia",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Vanderbilt University",
+    School: "Vanderbilt University",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Vassar College",
+    School: "Vassar College",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Wake Forest University",
+    School: "Wake Forest University",
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
-    "Max Out Loans": "Yes"
+    "Max Out Loans": "Yes",
   },
   {
-    "School": "Washington & Lee University",
+    School: "Washington & Lee University",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Washington University in St. Louis",
+    School: "Washington University in St. Louis",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Wellesley College",
+    School: "Wellesley College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Wesleyan University",
+    School: "Wesleyan University",
     "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Williams College",
+    School: "Williams College",
     "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
+    "Max Out Loans": "No",
   },
   {
-    "School": "Yale University",
+    School: "Yale University",
     "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
-    "Max Out Loans": "No"
-  }
-]
+    "Max Out Loans": "No",
+  },
+];
