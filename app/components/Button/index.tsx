@@ -7,6 +7,10 @@ export const Button: React.FC<
   >
 > = ({ ...props }) => {
   return (
-    <button className="btn btn-primary" style={{ padding: "8px" }} {...props} />
+    <button
+      className="btn btn-primary"
+      style={{ padding: "8px", background: "#0047ba" }}
+      {...props}
+    />
   );
 };
