@@ -128,8 +128,8 @@ exports.seed = async function (knex) {
       order: 6,
       skip_value: "",
       is_boolean: true,
-      exclusive: true,
-      exclude_value: "No",
+      exclusive: false,
+      exclude_value: "",
       match_value: "Dreamer",
     },
   ]);
