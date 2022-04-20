@@ -2,7 +2,7 @@ import { Form, redirect, useActionData } from "remix";
 import type { ActionFunction } from "remix";
 import { getSessionFromRequest } from "~/sessions";
 import { api } from "~/modules/assessment/infra";
-import { Container, MultiInput } from "~/components";
+import { Button, Container, Main, MultiInput } from "~/components";
 import { badRequest } from "~/util";
 
 type ActionData = {
@@ -36,22 +36,24 @@ export default function New() {
   const actionData = useActionData<ActionData>();
   return (
     <Container>
-      <Form method="post">
-        <MultiInput
-          label="What is your focus?"
-          type="radio"
-          name="response"
-          error={actionData?.formError}
-          options={[
-            { label: "In-state Universities", value: "instate" },
-            {
-              label: "Out-of-state Universities",
-              value: "outOfState",
-            },
-          ]}
-        />
-        <button type="submit">Next</button>
-      </Form>
+      <Main>
+        <Form method="post">
+          <MultiInput
+            label="What is your focus?"
+            type="radio"
+            name="response"
+            error={actionData?.formError}
+            options={[
+              { label: "In-state Universities", value: "instate" },
+              {
+                label: "Out-of-state Universities",
+                value: "outOfState",
+              },
+            ]}
+          />
+          <Button type="submit">Next</Button>
+        </Form>
+      </Main>
     </Container>
   );
 }
