@@ -1,23 +1,23 @@
 School,Q1,Q2,Q3,Q4,Q5,Q6,Q7,Q8,Q9,Q10,Q11
-Amherst College,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,Yes,national,11-20%,Yes,No
+Amherst College,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,Yes,national,0-10%,Yes,No
 Babson College,Northeast,Small,"Yes, No",business,No,No,No,national,21-30%,No,Yes 
 Barnard College,Northeast,Small,"Yes, No","music, art, architecture",No,Yes,No,national,11-20%,No,No
 Bates College,Northeast,Small,"Yes, No","music, art",No,No,Yes,national,11-20%,Yes,No
-Boston College,Northeast,Large,"Yes, No","engineering, business, nursing, Computer Science, music, art",No,No,No,national,21-30%,No,No
+Boston College,Northeast,Large,"Yes, No","engineering, business, nursing, Computer Science, music, art",No,No,No,national,11-20%,No,No
 Boston University,Northeast,Large,"Yes, No","engineering, business, Computer Science, journalism, music, art",No,No,No,national,11-20%,No,No
 Bowdoin College,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,Yes,national,0-10%,Yes,No
 Brown University,Northeast,Large,"Yes, No","engineering, business, Computer Science, music, art, architecture",No,No,Yes,national,0-10%,Yes,No
 Bryn Mawr College,Northeast,Small,"Yes, No","Computer Science, music, art",No,Yes,Yes,national,31%+,No,Yes 
 California Institute of Technology,West,Large,"Yes, No","engineering, Computer Science",No,No,No,national,0-10%,No,No
-Carleton College,Midwest,Small,"Yes, No","Computer Science, music, art",No,No,No,national,21-30%,No,No
+Carleton College,Midwest,Small,"Yes, No","Computer Science, music, art",No,No,No,national,11-20%,No,No
 Case Western Reserve University,Midwest,Large,"Yes, No","engineering, nursing, Computer Science, music, art",No,No,Yes,national,21-30%,No,Yes 
 Claremont McKenna College,West,Small,"Yes, No","business, Computer Science, music, art",No,No,Yes,national,11-20%,Yes,No
 Colby College,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,No,national,0-10%,Yes,No
-Colgate University,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,No,national,21-30%,Yes,No
+Colgate University,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,No,national,11-20%,Yes,No
 Colorado College,West,Small,"Yes, No","music, art",No,No,No,national,11-20%,No,No
 Columbia University,Northeast,Large,"Yes, No","engineering, business, Computer Science, music, art, architecture",No,No,Yes,national,0-10%,Yes,No
 Connecticut College,Northeast,Small,"Yes, No","music, art, architecture",No,No,No,national,31%+,No,No
-Cornell University,Northeast,Large,"Yes, No","engineering, business, Computer Science, music, art, architecture",No,No,Yes,national,11-20%,Yes,No
+Cornell University,Northeast,Large,"Yes, No","engineering, business, Computer Science, music, art, architecture",No,No,Yes,national,0-10%,Yes,No
 Dartmouth College,Northeast,Large,"Yes, No","engineering, Computer Science, music, art",No,No,Yes,national,0-10%,Yes,No
 Davidson College,South,Small,"Yes, No","music, art",No,No,No,national,11-20%,Yes,No
 Denison University,Midwest,Small,"Yes, No","business, journalism, music, art",No,No,No,national,21-30%,No,Yes 
@@ -29,16 +29,17 @@ Georgetown University,South,Large,Yes,"business, Computer Science, music, art",N
 Grinnell College,Midwest,Small,"Yes, No","Computer Science, music, art",No,No,No,national,11-20%,No,No
 Hamilton College,Northeast,Small,"Yes, No","music, art",No,No,No,national,11-20%,No,No
 Harvard University,Northeast,Large,"Yes, No","engineering, business, Computer Science, music, art",No,No,Yes,national,0-10%,Yes,No
-Harvey Mudd College,West,Small,"Yes, No",engineering,No,No,No,national,11-20%,No,Yes 
+Harvey Mudd College,West,Small,"Yes, No",engineering,No,No,No,national,0-10%,No,Yes 
 Haverford College,Northeast,Small,"Yes, No","music, art",No,No,No,national,11-20%,Yes,No
 Johns Hopkins University,South,Large,"Yes, No","engineering, Computer Science, music, art",No,No,Yes,national,0-10%,Yes,No
 Kenyon College,Midwest,Small,"Yes, No","music, art",No,No,No,national,31%+,No,No
 Lafayette College,Northeast,Small,"Yes, No","engineering, music, art",No,No,No,national,31%+,No,No
 Lehigh University,Northeast,Large,"Yes, No","engineering, business, Computer Science, journalism, music, art, architecture",No,No,No,national,31%+,No,Yes 
 Macalester College,Midwest,Small,"Yes, No","music, art",No,No,No,national,31%+,No,No
-Middlebury College,Northeast,Small,"Yes, No","Computer Science, music, art, architecture",No,No,Yes,national,21-30%,No,No
+Middlebury College,Northeast,Small,"Yes, No","Computer Science, music, art, architecture",No,No,Yes,national,11-20%,No,No
 MIT,Northeast,Large,Yes,"engineering, business, Computer Science, music, art, architecture",No,No,Yes,national,0-10%,Yes,No
 Mt. Holyoke College,Northeast,Small,"Yes, No","Computer Science, music, art",No,Yes,No,national,31%+,No,Yes 
+New York University,Northeast,Large,"Yes, No","engineering, business, Computer Science, journalism, music, art",No,No,No,national,11-20%,No,No
 Northeastern University,Northeast,Large,"Yes, No","engineering, business, Computer Science, journalism, music, art, architecture",No,No,No,national,11-20%,No,No
 Northwestern University,Midwest,Large,"Yes, No","engineering, business, Computer Science, journalism, music, art",No,No,No,national,0-10%,Yes,No
 Oberlin College,Midwest,Small,"Yes, No","business, journalism, music, art",No,No,Yes,national,31%+,No,No
@@ -47,32 +48,32 @@ Pitzer College,West,Small,"Yes, No","business, art",No,No,No,national,11-20%,No,
 Pomona College,West,Small,"Yes, No","Computer Science, music, art",No,No,Yes,national,0-10%,Yes,No
 Princeton University,Northeast,Large,"Yes, No","engineering, Computer Science, music, art, architecture",No,No,Yes,national,0-10%,Yes,No
 Reed College,West,Small,"Yes, No","Computer Science, music, art",No,No,No,national,31%+,No,Yes 
-Rice University,South,Large,"Yes, No","engineering, Computer Science, music, art, architecture",No,No,Yes,national,11-20%,No,No
-Scripps College,West,Small,"Yes, No","business, Computer Science, music, art",No,Yes,No,national,31%+,No,No
+Rice University,South,Large,"Yes, No","engineering, Computer Science, music, art, architecture",No,No,Yes,national,0-10%,No,No
+Scripps College,West,Small,"Yes, No","business, Computer Science, music, art",No,Yes,No,national,21-30%,No,No
 Skidmore College,Northeast,Small,"Yes, No","business, music, art",No,No,No,national,31%+,No,No
-Smith College,Northeast,Small,"Yes, No","engineering, Computer Science, music, art",No,Yes,Yes,national,31%+,Yes,No
+Smith College,Northeast,Small,"Yes, No","engineering, Computer Science, music, art",No,Yes,Yes,national,21-30%,Yes,No
 Stanford University,West,Large,"Yes, No","engineering, Computer Science, music, art",No,No,Yes,national,0-10%,Yes,No
 Swarthmore College,Northeast,Small,"Yes, No","engineering, music, art",No,No,Yes,national,0-10%,Yes,No
 Trinity College,Northeast,Small,"Yes, No","engineering, Computer Science, music, art",No,No,Yes,national,31%+,No,Yes 
 Tufts University,Northeast,Large,"Yes, No","engineering, Computer Science, music, art",No,No,Yes,national,11-20%,No,No
 U.S. Air Force Academy,West,Small,Yes,"engineering, Computer Science",Yes,No,No,national,11-20%,No,No
-U.S. Military Academy,Northeast,Small,Yes,engineering,Yes,No,No,national,0-10%,No,No
+U.S. Military Academy,Northeast,Small,Yes,engineering,Yes,No,No,national,11-20%,No,No
 U.S. Naval Academy,South,Small,Yes,"engineering, Computer Science",Yes,No,No,national,0-10%,No,No
 Union College,Northeast,Small,"Yes, No","engineering, business, music, art",No,No,No,national,31%+,No,No
 University of Chicago,Midwest,Large,"Yes, No","Computer Science, music, art",No,No,No,national,0-10%,Yes,No
-University of North Carolina - Chapel Hill,South,Large,"Yes, No","engineering, business, nursing, Computer Science, journalism, music, art",No,No,No,national,21-30%,No,No
+University of North Carolina - Chapel Hill,South,Large,"Yes, No","engineering, business, nursing, Computer Science, journalism, music, art",No,No,No,national,11-20%,No,No
 University of Notre Dame,Midwest,Large,"Yes, No","engineering, business, Computer Science, journalism, music, art, architecture",No,No,Yes,national,11-20%,Yes,No
 University of Pennsylvania,Northeast,Large,"Yes, No","engineering, business, nursing, Computer Science, music, art, architecture",No,No,No,national,0-10%,Yes,No
-University of Richmond,South,Small,"Yes, No","journalism, music, art",No,No,No,national,31%+,No,No
+University of Richmond,South,Small,"Yes, No","journalism, music, art",No,No,No,national,21-30%,No,No
 University of Rochester,Northeast,Large,"Yes, No","engineering, business, nursing, Computer Science, music, art",No,No,Yes,national,31%+,No,No
 University of Southern California,West,Large,"Yes, No","engineering, business, Computer Science, journalism, music, art, architecture",No,No,No,national,11-20%,No,No
 University of Virginia,South,Large,"Yes, No","engineering, business, nursing, Computer Science, music, art, architecture",No,No,No,national,21-30%,No,No
-Vanderbilt University,South,Large,"Yes, No","engineering, Computer Science, music, art",No,No,No,national,11-20%,Yes,No
-Vassar College,Northeast,Small,"Yes, No","music, art",No,No,No,national,21-30%,No,No
-Wake Forest University,South,Large,"Yes, No","engineering, Computer Science, music, art",No,No,No,national,31%+,No,Yes 
-Washington & Lee University,South,Small,"Yes, No","business, Computer Science, journalism, music, art",No,No,No,national,21-30%,Yes,No
+Vanderbilt University,South,Large,"Yes, No","engineering, Computer Science, music, art",No,No,No,national,0-10%,Yes,No
+Vassar College,Northeast,Small,"Yes, No","music, art",No,No,No,national,11-20%,No,No
+Wake Forest University,South,Large,"Yes, No","engineering, Computer Science, music, art",No,No,No,national,21-30%,No,Yes 
+Washington & Lee University,South,Small,"Yes, No","business, Computer Science, journalism, music, art",No,No,No,national,11-20%,Yes,No
 Washington University in St. Louis,Midwest,Large,"Yes, No","engineering, business, Computer Science, journalism, music, art, architecture",No,No,Yes,national,11-20%,Yes,No
 Wellesley College,Northeast,Small,"Yes, No","music, art, architecture",No,Yes,No,national,11-20%,Yes,No
-Wesleyan University,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,Yes,national,21-30%,Yes,No
-Williams College,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,Yes,national,11-20%,Yes,No
+Wesleyan University,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,Yes,national,11-20%,Yes,No
+Williams College,Northeast,Small,"Yes, No","Computer Science, music, art",No,No,Yes,national,0-10%,Yes,No
 Yale University,Northeast,Large,"Yes, No","engineering, Computer Science, music, art, architecture",No,No,Yes,national,0-10%,Yes,No
