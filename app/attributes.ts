@@ -1,7 +1,7 @@
 export const attributes = [
   {
     School: "Amherst College",
-    "Acceptance Rate": "11-20%",
+    "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
     "Max Out Loans": "No",
   },
@@ -25,7 +25,7 @@ export const attributes = [
   },
   {
     School: "Boston College",
-    "Acceptance Rate": "21-30%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
@@ -61,7 +61,7 @@ export const attributes = [
   },
   {
     School: "Carleton College",
-    "Acceptance Rate": "21-30%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
@@ -85,7 +85,7 @@ export const attributes = [
   },
   {
     School: "Colgate University",
-    "Acceptance Rate": "21-30%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
     "Max Out Loans": "No",
   },
@@ -109,7 +109,7 @@ export const attributes = [
   },
   {
     School: "Cornell University",
-    "Acceptance Rate": "11-20%",
+    "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
     "Max Out Loans": "No",
   },
@@ -181,7 +181,7 @@ export const attributes = [
   },
   {
     School: "Harvey Mudd College",
-    "Acceptance Rate": "11-20%",
+    "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "Yes",
   },
@@ -223,7 +223,7 @@ export const attributes = [
   },
   {
     School: "Middlebury College",
-    "Acceptance Rate": "21-30%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
@@ -238,6 +238,12 @@ export const attributes = [
     "Acceptance Rate": "31%+",
     "Top Financial Aid School": "No",
     "Max Out Loans": "Yes",
+  },
+  {
+    School: "New York University",
+    "Acceptance Rate": "11-20%",
+    "Top Financial Aid School": "No",
+    "Max Out Loans": "No",
   },
   {
     School: "Northeastern University",
@@ -289,13 +295,13 @@ export const attributes = [
   },
   {
     School: "Rice University",
-    "Acceptance Rate": "11-20%",
+    "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
   {
     School: "Scripps College",
-    "Acceptance Rate": "31%+",
+    "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
@@ -307,7 +313,7 @@ export const attributes = [
   },
   {
     School: "Smith College",
-    "Acceptance Rate": "31%+",
+    "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "Yes",
     "Max Out Loans": "No",
   },
@@ -343,7 +349,7 @@ export const attributes = [
   },
   {
     School: "U.S. Military Academy",
-    "Acceptance Rate": "0-10%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
@@ -367,7 +373,7 @@ export const attributes = [
   },
   {
     School: "University of North Carolina - Chapel Hill",
-    "Acceptance Rate": "21-30%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
@@ -385,7 +391,7 @@ export const attributes = [
   },
   {
     School: "University of Richmond",
-    "Acceptance Rate": "31%+",
+    "Acceptance Rate": "21-30%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
@@ -409,25 +415,25 @@ export const attributes = [
   },
   {
     School: "Vanderbilt University",
-    "Acceptance Rate": "11-20%",
+    "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
     "Max Out Loans": "No",
   },
   {
     School: "Vassar College",
-    "Acceptance Rate": "21-30%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "No",
   },
   {
     School: "Wake Forest University",
-    "Acceptance Rate": "31%+",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "No",
     "Max Out Loans": "Yes",
   },
   {
     School: "Washington & Lee University",
-    "Acceptance Rate": "21-30%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
     "Max Out Loans": "No",
   },
@@ -445,13 +451,13 @@ export const attributes = [
   },
   {
     School: "Wesleyan University",
-    "Acceptance Rate": "21-30%",
+    "Acceptance Rate": "11-20%",
     "Top Financial Aid School": "Yes",
     "Max Out Loans": "No",
   },
   {
     School: "Williams College",
-    "Acceptance Rate": "11-20%",
+    "Acceptance Rate": "0-10%",
     "Top Financial Aid School": "Yes",
     "Max Out Loans": "No",
   },
